@@ -9,5 +9,8 @@ urlpatterns = [
     path('common/', include('common.urls')),
     path('search/', include('search.urls')),
     path('manage/', include('manage.urls')),
+    path('forum/', include('forum.urls', namespace='forum')),
+    path('api/', include('forum.urls', namespace='api')),
+
     path('', include('main.urls')),
 ]

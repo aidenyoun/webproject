@@ -26,6 +26,37 @@
     <!-- pybo CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Capsule Care</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    </script>
 </head>
 <body>
 <!-- 네비게이션바 -->
@@ -38,6 +69,32 @@
 <script src="{% static 'bootstrap.min.js' %}"></script>
 <!-- 자바스크립트 Start -->
 {% block script %}
+    <script>
+        function addPost() {
+            var title = document.getElementById('postTitle').value;
+            var content = document.getElementById('postContent').value;
+        
+            fetch('/api/posts/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken,
+                },
+                body: JSON.stringify({
+                    title: title,
+                    content: content,
+                }),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                // 게시글 추가 후 필요한 동작을 수행합니다.
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 {% endblock %}
 <!-- 자바스크립트 End -->
 </body>
