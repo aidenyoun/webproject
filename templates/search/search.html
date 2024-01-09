@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="ko">
+        <style>
+        /* 뒤로가기 버튼과 제목 사이의 여백 */
+        .navbar-brand {
+            margin-bottom: 5px;
+        }
+        /* 페이지 가운데에 버튼 위치 */
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,">
+    <title>약품 찾기</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;" >뒤로가기</button>
+        </a>
+    </nav>
+
+    <div class="container text-center mt-5 " style="font-family: 'NanumSquareRoundB', sans-serif;">
+        <h1 class="mt-5" >약품 찾기</h1>
+    </div>
+    
+    <div class="container text-center mt-5 centered">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <button class="btn btn-light btn-block btn-lg mb-4" style="font-family: 'NanumSquareRoundB', sans-serif;">약품명으로 찾기</button>
+                <button class="btn btn-light btn-block btn-lg" style="font-family: 'NanumSquareRoundB', sans-serif;">사진으로 찾기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+{% endblock %}
