@@ -1,55 +1,117 @@
 {% extends "base.html" %}
 {% load static %}
+{% load my_filters %}
 {% block content %}
+<script>
+function addPost() {
+    var title = document.getElementById('postTitle').value;
+    var content = document.getElementById('postContent').value;
+    var category = document.getElementById('postCategory').value;
+    var data = new URLSearchParams();
+    data.append('title', title);
+    data.append('content', content);
+    data.append('category', category);
 
+    fetch('/api/posts/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': csrftoken,
+        },
+        body: data,
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then((data) => {
+        alert('작성이 완료되었습니다!');
+        window.location.href = '/forum/' + data.pk + '/';
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('addPostButton').addEventListener('click', function() {
+            $('#postModal').modal('show');
+        });
+    });
+    </script>
+    <script>
+    function showSearchForm() {
+        var searchForm = document.getElementById("searchForm");
+        searchForm.style.display = "block";
+    }
+    function changeColor(e) {
+        var btns = document.querySelectorAll(".btn");
+        btns.forEach(btn => {
+            btn.style.color = 'black';
+        });
+        e.target.style.color = 'red';
+    }
+    function changeCategory(e) {
+        var clickedButton = e.target;
+        var category = clickedButton.getAttribute('data-category');
+
+        if (category) {
+            currentCategory = category;
+        }
+        changeColor(e);
+    }
+    </script>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-light bg-light" style="font-family: 'NanumSquareRoundB', sans-serif; border-bottom: 1px solid gray;">
-        <a class="navbar-brand" href="#">Community</a>
+        <a class="navbar-brand" href="/forum/">커뮤니티</a>
         <form class="form-inline" id="searchForm" style="display: none;">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
         </form>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showSearchForm()">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showSearchForm()">검색</button>
     </nav>
 
-    <!-- 게시판 목록 -->
     <nav class="navbar navbar-light bg-light container-fluid" style="font-family: 'NanumSquareRoundB', sans-serif; border-bottom: 1px solid gray;">
         <div class="btn-group" role="group" aria-label="Basic example" style="overflow-x: auto; white-space: nowrap; width: 100%;" onclick="changeColor(event)">
-            <button type="button" class="btn btn-light">전체</button>
-            <button type="button" class="btn btn-light">공지사항</button>
-            <button type="button" class="btn btn-light">자유게시판</button>
-            <button type="button" class="btn btn-light">후기게시판</button>
-            <button type="button" class="btn btn-light">질문게시판</button>
-            <button type="button" class="btn btn-light">건의게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='/forum/'">전체</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '공지사항' %}'">공지사항</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '자유게시판' %}'">자유게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '후기게시판' %}'">후기게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '질문게시판' %}'">질문게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '건의게시판' %}'">건의게시판</button>
         </div>
     </nav>
 
-    <!-- 게시글 목록 -->
     <div class="container my-3">
         {% for post in posts %}
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ post.image.url }}" class="card-img" alt="{{ post.title }}">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" class="card-img">
+                    {% else %}
+                    {% endif %}
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ post.content }}</p>
-                        <p class="card-text"><small class="text-muted">조회수: {{ post.views }}</small></p>
+                        <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
+                        <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                        <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_at }} | 조회수: {{ post.views }} | 추천수: {{ post.likes }}</small></p>
                     </div>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
-    <!-- 게시글 추가 모달 -->
+
     <div class="modal" tabindex="-1" role="dialog" id="postModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -61,6 +123,15 @@
           </div>
           <div class="modal-body">
             <form>
+                <div class="form-group">
+                    <label for="postCategory">카테고리</label>
+                    <select class="form-control" id="postCategory">
+                        <option value="free">자유게시판</option>
+                        <option value="question">질문게시판</option>
+                        <option value="review">후기게시판</option>
+                        <option value="suggestion">건의사항</option>
+                    </select>
+                </div>
               <div class="form-group">
                 <label for="postTitle">제목</label>
                 <input type="text" class="form-control" id="postTitle" placeholder="제목을 입력하세요">
@@ -73,41 +144,21 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="addPost()">게시글 추가</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.history.back()">닫기</button>
           </div>
         </div>
       </div>
     </div>
     <div class="container my-3">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postModal" style="position: fixed; bottom: 20px; right: 20px;">
-            게시글 추가
+        <button type="button" class="btn btn-primary" id="addPostButton" data-toggle="modal" data-target="#postModal" style="position: fixed; bottom: 20px; right: 20px;">
+            새 게시글
         </button>
     </div>
 </body>
 </html>
 
-<script>
-function showSearchForm() {
-    var searchForm = document.getElementById("searchForm");
-    searchForm.style.display = "block";
-}
-function changeColor(e) {
-    var btns = document.querySelectorAll(".btn");
-    btns.forEach(btn => {
-        btn.style.color = 'black';
-    });
-    e.target.style.color = 'red';
-}
-</script>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 {{ block.super }}
-<script>
-// addPost 함수를 호출하는 코드
-document.getElementById('addPostButton').addEventListener('click', addPost);
-</script>
 {% endblock %}

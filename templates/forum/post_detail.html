@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;" >뒤로가기</button>
+        </a>
+    </nav>
+
+    <div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h1 class="card-title">제목 : {{ post.title }}</h1>
+                        <p class="card-text">작성자 : {{ post.author }}</p>
+                        <p class="card-text">작성일 : {{ post.created_at }}</p>
+                        <p class="card-text">조회수 : {{ post.views }}</p>
+                        <p class="card-text">추천수 : {{ post.likes }}</p>
+                        <hr>
+                        <p class="card-text">내용<br> {{ post.content }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

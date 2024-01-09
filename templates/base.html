@@ -69,30 +69,16 @@
 <script src="{% static 'bootstrap.min.js' %}"></script>
 <!-- 자바스크립트 Start -->
 {% block script %}
+
     <script>
-        function addPost() {
-            var title = document.getElementById('postTitle').value;
-            var content = document.getElementById('postContent').value;
-        
-            fetch('/api/posts/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrftoken,
-                },
-                body: JSON.stringify({
-                    title: title,
-                    content: content,
-                }),
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-                // 게시글 추가 후 필요한 동작을 수행합니다.
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+        var currentCategory = "전체";
+        function changeCategory(e) {
+            var clickedButton = e.target;
+            var category = clickedButton.getAttribute('data-category');
+
+            if (category) {
+                currentCategory = category;
+            }
         }
     </script>
 {% endblock %}

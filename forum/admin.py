@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Post
 
-# Register your models here.
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'content', 'views', 'created_at', 'updated_at')
+    list_filter = ('category',)
+
+admin.site.register(Post, PostAdmin)
