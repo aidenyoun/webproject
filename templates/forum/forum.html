@@ -64,10 +64,14 @@ function addPost() {
     });
     </script>
     <script>
-    function showSearchForm() {
-        var searchForm = document.getElementById("searchForm");
-        searchForm.style.display = "block";
-    }
+        function showSearchForm() {
+            var searchForm = document.getElementById('searchForm');
+            if (searchForm.style.display === "none") {
+                searchForm.style.display = "block";
+            } else {
+                searchForm.style.display = "none";
+            }
+        }
     function changeColor(e) {
         var btns = document.querySelectorAll(".btn");
         btns.forEach(btn => {
@@ -102,8 +106,8 @@ function addPost() {
 <body>
     <nav class="navbar navbar-light bg-light" style="font-family: 'NanumSquareRoundB', sans-serif; border-bottom: 1px solid gray;">
         <a class="navbar-brand" href="/forum/">커뮤니티</a>
-        <form class="form-inline" id="searchForm" style="display: none;">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="form-inline" id="searchForm" action="/forum/" method="get" style="display: none;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
         </form>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showSearchForm()">검색</button>
@@ -179,12 +183,14 @@ function addPost() {
         </div>
       </div>
     </div>
+    {% if request.user.is_authenticated %}
     <div class="container my-3">
         <button class="btn btn-link fixed-button" id="addPostButton">
             <img src="{% static 'img/chat.png' %}" alt="Chat icon" class="back-icon">
             <span class="back-text">게시글 추가</span>
         </button>
     </div>
+    {% endif %}
 </body>
 </html>
 
