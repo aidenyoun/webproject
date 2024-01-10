@@ -3,23 +3,44 @@
 {% load my_filters %}
 {% block content %}
 <script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 function addPost() {
     var title = document.getElementById('postTitle').value;
     var content = document.getElementById('postContent').value;
     var category = document.getElementById('postCategory').value;
     var data = new URLSearchParams();
+    var token = localStorage.getItem('token');
+    var csrftoken = getCookie('csrftoken');
+    if (!token) {
+        console.error('Token is not found. User might not be logged in.');
+        return; // 토큰이 없으면 함수를 종료합니다.
+    }
     data.append('title', title);
     data.append('content', content);
     data.append('category', category);
 
-    fetch('/api/posts/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'X-CSRFToken': csrftoken,
-        },
-        body: data,
-    })
+        fetch('/api/posts/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': csrftoken,
+                'Authorization': 'Token ' + token, // 인증 토큰 추가
+            },
+            body: data,
+        })
     .then((response) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -67,6 +88,15 @@ function addPost() {
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <style>
+        .fixed-button {
+            font-family: 'NanumSquareRoundB', sans-serif;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: lightgray;
+        }
+    </style>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -82,11 +112,11 @@ function addPost() {
     <nav class="navbar navbar-light bg-light container-fluid" style="font-family: 'NanumSquareRoundB', sans-serif; border-bottom: 1px solid gray;">
         <div class="btn-group" role="group" aria-label="Basic example" style="overflow-x: auto; white-space: nowrap; width: 100%;" onclick="changeColor(event)">
             <button type="button" class="btn btn-light" onclick="location.href='/forum/'">전체</button>
-            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '공지사항' %}'">공지사항</button>
-            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '자유게시판' %}'">자유게시판</button>
-            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '후기게시판' %}'">후기게시판</button>
-            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '질문게시판' %}'">질문게시판</button>
-            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' '건의게시판' %}'">건의게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'notice' %}'">공지사항</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'free' %}'">자유게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'review' %}'">후기게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'question' %}'">질문게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'suggestion' %}'">건의게시판</button>
         </div>
     </nav>
 
@@ -144,14 +174,15 @@ function addPost() {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="addPost()">게시글 추가</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.history.back()">닫기</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='./'">닫기</button>
           </div>
         </div>
       </div>
     </div>
     <div class="container my-3">
-        <button type="button" class="btn btn-primary" id="addPostButton" data-toggle="modal" data-target="#postModal" style="position: fixed; bottom: 20px; right: 20px;">
-            새 게시글
+        <button class="btn btn-link fixed-button" id="addPostButton">
+            <img src="{% static 'img/chat.png' %}" alt="Chat icon" class="back-icon">
+            <span class="back-text">게시글 추가</span>
         </button>
     </div>
 </body>

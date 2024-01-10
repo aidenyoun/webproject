@@ -1,26 +1,99 @@
 {% extends "base.html" %}
-{% block content %}
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;" >뒤로가기</button>
-        </a>
-    </nav>
+{% load static %}
 
-    <div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h1 class="card-title">제목 : {{ post.title }}</h1>
-                        <p class="card-text">작성자 : {{ post.author }}</p>
-                        <p class="card-text">작성일 : {{ post.created_at }}</p>
-                        <p class="card-text">조회수 : {{ post.views }}</p>
-                        <p class="card-text">추천수 : {{ post.likes }}</p>
-                        <hr>
-                        <p class="card-text">내용<br> {{ post.content }}</p>
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;">
+            <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
+            <span class="back-text">뒤로가기</span>
+        </button>
+    </a>
+</nav>
+<!-- 메시지를 표시하는 섹션 추가 -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h1 class="card-title">제목 : {{ post.title }}</h1>
+                    <p class="card-text">작성자 : {{ post.author.username }}</p>
+                    <p class="card-text">작성일 : {{ post.created_at }}</p>
+                    <p class="card-text">조회수 : {{ post.views }}</p>
+                    <p class="card-text">추천수 : {{ post.likes }}</p>
+                    <hr>
+                    <h2 class="card-text">내용</h2>
+                    <p class="card-text">{{ post.content | linebreaks }}</p>
+                    <div class="d-flex justify-content-between">
+                        {% if user.is_authenticated and user == post.author %}
+                        <div>
+                            <a href="{% url 'forum:post_edit' post.pk %}"><button type="button">수정</button></a>
+                            <a href="{% url 'forum:post_delete' post.pk %}"><button type="button">삭제</button></a>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <a href="{% url 'forum:recommend_post' post.pk %}"><button type="button">추천</button></a>
+                        </div>
                     </div>
+                    <hr>
+                        <div class="comment-section">
+                            <h2>댓글</h2>
+                            {% for comment in post.comments.all %}
+                            <div class="comment" style="border: 1px solid #ccc; margin-bottom: 10px; padding: 10px;">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="comment-author">{{ comment.author.username }}</h5>
+                                        <p class="comment-text">{{ comment.text }}</p>
+                                        <!-- 댓글 추천수 표시 -->
+                                        <p class="comment-likes">추천수: {{ comment.likes }}</p>
+                                    </div>
+                                  <div>
+                                    {% if user.is_authenticated and user == comment.author %}
+                                    <a href="{% url 'forum:comment_edit' comment.pk %}"><button>수정</button></a>
+                                    <a href="{% url 'forum:comment_delete' comment.pk %}"><button>삭제</button></a>
+                                    {% elif user.is_authenticated %}
+                                    <!-- 추천 버튼에 onclick 이벤트 추가 -->
+                                        {% if user.is_authenticated %}
+                                            {% if comment.pk not in comments_user_has_liked %}
+                                                <a href="{% url 'forum:recommend_comment' comment.pk %}" onclick="return confirmRecommendation({{ comment.pk }});"><button type="button">추천</button></a>
+                                            {% else %}
+                                                <button type="button" onclick="alert('이미 이 댓글을 추천하셨습니다.');">추천</button>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                  </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'forum:comment_new' post.pk %}" method="POST">
+                        {% csrf_token %}
+                        <textarea name="text" required></textarea>
+                        <button type="submit">댓글 작성</button>
+                    </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<script>
+function confirmRecommendation(commentId) {
+    if (confirm('이 댓글을 추천하시겠습니까?')) {
+        window.location.href = '/forum/comment/' + commentId + '/recommend/';
+    }
+    return false; // 버블링을 방지하기 위해 false를 반환합니다.
+}
+</script>
 {% endblock %}

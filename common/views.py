@@ -34,5 +34,7 @@ class LoginView(APIView):
         if user is None:
             return Response({"error": "Login failed"}, status=status.HTTP_401_UNAUTHORIZED)
 
+        # 사용자가 성공적으로 로그인하면 토큰을 생성하거나 가져옵니다.
         token, created = Token.objects.get_or_create(user=user)
+        # 토큰 키를 응답으로 반환합니다.
         return Response({"token": token.key}, status=status.HTTP_200_OK)
