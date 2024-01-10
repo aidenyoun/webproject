@@ -8,12 +8,12 @@
         <div class="mb-3">
             <label for="username">사용자ID</label>
             <input type="text" class="form-control" name="username" id="username"
-                   value="{{ form.username.value|default_if_none:'' }}">
+                   value="{{ form.username.value|default_if_none:'' }}" autocomplete="username">
         </div>
         <div class="mb-3">
             <label for="password">비밀번호</label>
             <input type="password" class="form-control" name="password" id="password"
-                   value="{{ form.password.value|default_if_none:'' }}">
+                   value="{{ form.password.value|default_if_none:'' }}" autocomplete="current-password">
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
     </form>
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('{% url 'common:api_login' %}', { // REST API 로그인 URL로 변경
             method: 'POST',
             headers: {
-                'X-CSRFToken': '{{ csrf_token }}', // CSRF 토큰 포함
-                'Content-Type': 'application/json' // JSON 형식으로 전송
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 username: formData.get('username'),
@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 토큰을 로컬 스토리지에 저장합니다.
                 localStorage.setItem('token', data.token);
                 // next 파라미터 또는 홈페이지로 리디렉션합니다.
-                window.location.href = formData.get('next') || '/';
+                window.location.href = '/';
+
             } else {
                 // 로그인 실패 처리
                 alert('로그인 실패');

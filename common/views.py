@@ -6,11 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-
 def logout_view(request):
     logout(request)
     return redirect('main')
-
 def signup(request):
     if request.method == "POST":
         form = UserForm(request.POST)
@@ -33,6 +31,9 @@ class LoginView(APIView):
 
         if user is None:
             return Response({"error": "Login failed"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # 로그인 처리.
+        login(request, user)
 
         # 사용자가 성공적으로 로그인하면 토큰을 생성하거나 가져옵니다.
         token, created = Token.objects.get_or_create(user=user)

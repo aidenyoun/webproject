@@ -117,19 +117,14 @@ def recommend_post(request, pk):
     # 사용자가 자신의 게시글을 추천하려는 경우를 방지
     if post.author != request.user:
         # 이미 추천한 게시글인지 확인
-        if post not in user_profile.recommended_posts.all():
-            user_profile.recommended_posts.add(post)
+        if post.liked_users.filter(id=request.user.id).exists():
+            messages.error(request, '이미 이 게시물을 추천하셨습니다.')
+        else:
+            post.liked_users.add(request.user)
             post.likes += 1
             post.save()
+            messages.success(request, '게시물을 추천하셨습니다.')
 
-    return redirect('post_detail', pk=post.pk)
-
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def recommend_post(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    post.likes += 1
-    post.save()
     return redirect('forum:post_detail', pk=post.pk)
 
 @authentication_classes([TokenAuthentication])
