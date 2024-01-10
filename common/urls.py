@@ -9,5 +9,4 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('signup/', views.signup, name='signup'),
     path('api/login/', views.LoginView.as_view(), name='api_login'),  # 'api_login' 엔드포인트 추가
-
 ]

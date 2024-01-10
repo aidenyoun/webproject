@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;">
+            <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
+            <span class="back-text">뒤로가기</span>
+        </button>
+    </a>
+</nav>
+
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body text-center">
+                    <h1 class="card-title">사용자 정보 변경</h1>
+                    <hr>
+                    <a href="/mypage/password_change/" class="btn btn-primary">비밀번호 변경하기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

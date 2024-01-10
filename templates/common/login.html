@@ -1,34 +1,53 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-<div class="container my-3">
-    <form method="post" action="{% url 'common:login' %}">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">  <!-- 로그인 성공후 이동되는 URL -->
-        {% include "form_errors.html" %}
-        <div class="mb-3">
-            <label for="username">사용자ID</label>
-            <input type="text" class="form-control" name="username" id="username"
-                   value="{{ form.username.value|default_if_none:'' }}" autocomplete="username">
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;">
+            <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
+            <span class="back-text">뒤로가기</span>
+        </button>
+    </a>
+</nav>
+
+<div class="container" style="font-family: 'NanumSquareB', sans-serif;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h1 class="card-title text-center">로그인</h1>
+                    <hr>
+                    <form method="post" action="{% url 'common:login' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        {% include "form_errors.html" %}
+                        <div class="mb-3">
+                            <label for="username">사용자ID</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   value="{{ form.username.value|default_if_none:'' }}" autocomplete="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password">비밀번호</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   value="{{ form.password.value|default_if_none:'' }}" autocomplete="current-password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">로그인</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="password">비밀번호</label>
-            <input type="password" class="form-control" name="password" id="password"
-                   value="{{ form.password.value|default_if_none:'' }}" autocomplete="current-password">
-        </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
-    </form>
+    </div>
 </div>
-    
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var loginForm = document.querySelector('form');
     loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // 폼의 기본 제출을 방지합니다.
+        e.preventDefault();
 
-        // FormData 객체를 사용하여 폼 데이터를 가져옵니다.
         var formData = new FormData(loginForm);
-        // Fetch API를 통해 로그인 요청을 보냅니다.
-        fetch('{% url 'common:api_login' %}', { // REST API 로그인 URL로 변경
+        fetch('{% url 'common:api_login' %}', {
             method: 'POST',
             headers: {
                 'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
@@ -47,13 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data.token) {
-                // 토큰을 로컬 스토리지에 저장합니다.
                 localStorage.setItem('token', data.token);
-                // next 파라미터 또는 홈페이지로 리디렉션합니다.
                 window.location.href = '/';
-
             } else {
-                // 로그인 실패 처리
                 alert('로그인 실패');
             }
         })

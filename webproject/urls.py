@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-from board.views import base_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,6 +10,7 @@ urlpatterns = [
     path('manage/', include('manage.urls')),
     path('forum/', include('forum.urls', namespace='forum')),
     path('api/', include('forum.urls', namespace='api')),
+    path('mypage/', include('mypage.urls')),
 
     path('', include('main.urls')),
 ]
