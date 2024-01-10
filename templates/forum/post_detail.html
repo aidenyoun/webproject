@@ -10,14 +10,6 @@
         </button>
     </a>
 </nav>
-<!-- 메시지를 표시하는 섹션 추가 -->
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
 
 <div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
     <div class="row">
@@ -39,8 +31,9 @@
                             <a href="{% url 'forum:post_delete' post.pk %}"><button type="button">삭제</button></a>
                         </div>
                         {% endif %}
+                    {% if request.user.is_authenticated %}
                         <div>
-                           <a href="{% url 'forum:recommend_post' post.pk %}" onclick="return confirmRecommendation({{ post.pk }}, 'post');">
+                           <a href="{% url 'forum:recommend_post' post.pk %}" onclick="{% if user.is_authenticated and post not in user.liked_posts.all %}return confirmRecommendation({{ post.pk }}, 'post');{% else %}event.preventDefault();{% endif %}">
                             {% if user.is_authenticated and post not in user.liked_posts.all %}
                                 <button type="button">추천</button>
                             {% else %}
@@ -48,6 +41,7 @@
                             {% endif %}
                             </a>
                         </div>
+                    {% endif %}
                     </div>
                     <hr>
                         <div class="comment-section">
