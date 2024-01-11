@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
@@ -11,9 +10,11 @@ from django.views.decorators.csrf import csrf_exempt
 import datetime
 
 
-@login_required
 def manage(request):
-    medicines = Medicine.objects.filter(user=request.user)
+    if request.user.is_authenticated:
+        medicines = Medicine.objects.filter(user=request.user)
+    else:
+        medicines = Medicine.objects.none()
     return render(request, 'manage/manage.html', {'medicines': medicines})
 
 def calendar(request):

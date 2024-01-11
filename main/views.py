@@ -3,11 +3,12 @@ from manage.models import Medicine
 from django.utils import timezone
 
 def main(request):
-    # 사용자의 약품 리스트를 가져옵니다.
-    medicines = Medicine.objects.filter(user=request.user)
+    if request.user.is_authenticated:
+        medicines = Medicine.objects.filter(user=request.user)
+    else:
+        medicines = None  # 비회원인 경우 medicines는 None으로 설정
 
-    alert = request.session.pop('alert', None)  # 세션에서 알림 메시지를 가져오고 삭제
-    # 'medicines'를 context에 추가하여 템플릿에 전달합니다.
+    alert = request.session.pop('alert', None)
     return render(request, 'main/main.html', {'alert': alert, 'medicines': medicines})
 
 def save_medication(request):
