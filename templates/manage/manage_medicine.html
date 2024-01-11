@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body text-center">
+                    <h1 class="card-title">약품 관리</h1>
+                    <hr>
+                    <form method="POST" action="{% url 'manage:manage_medicine' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="medicine_name">약품명:</label>
+                            <input type="text" id="medicine_name" name="medicine_name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="medicine_form">약품의 형태:</label>
+                            <select id="medicine_form" name="medicine_form" class="form-control">
+                                <option value="">선택해주세요</option>
+                                <option value="정제">정제</option>
+                                <option value="캡슐">캡슐</option>
+                                <option value="시럽">시럽</option>
+                                <!-- 필요한 경우 추가 가능 -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="start_date">복용 시작 일자:</label>
+                            <input type="date" id="start_date" name="start_date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">복용 끝 일자:</label>
+                            <input type="date" id="end_date" name="end_date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="morning">아침 알림 시간:</label><br>
+                                <input type="checkbox" id="morning" name="notify_time" value="morning"> 아침
+                                <input type="time" id="morning_time" name="morning_time">
+                            </div>
+                            <div>
+                                <label for="lunch">점심 알림 시간:</label><br>
+                                <input type="checkbox" id="lunch" name="notify_time" value="lunch"> 점심
+                                <input type="time" id="lunch_time" name="lunch_time">
+                            </div>
+                            <div>
+                                <label for="dinner">저녁 알림 시간:</label><br>
+                                <input type="checkbox" id="dinner" name="notify_time" value="dinner"> 저녁
+                                <input type="time" id="dinner_time" name="dinner_time">
+                            </div>
+                        </div>
+                        <input type="submit" value="저장" class="btn btn-primary">
+                    </form>
+                    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="messageModalLabel">Message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- 메시지를 표시할 곳 -->
+                            <p id="messageText"></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% for message in messages %}
+<script>
+  if ("{{ message }}") {
+    // 메시지 표시
+    document.getElementById('messageText').textContent = "{{ message }}";
+    $('#messageModal').modal('show');
+  }
+</script>
+{% endfor %}
+{% endblock %}

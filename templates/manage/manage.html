@@ -1,9 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                dateClick: function(info) {
+                    alert('Clicked date: ' + info.dateStr);
+                }
+            });
+            calendar.render();
+        });
+        function openModal(id=null) {
+            var url = id ? "{% url 'manage:edit_medicine' %}?id=" + id : "{% url 'manage:manage_medicine' %}";
+            fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('#manageMedicineModal .modal-body').innerHTML = data;
+                $('#manageMedicineModal').modal('show');
+            });
+        }
+    </script>
 </head>
-<body>
-</body>
-</html>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;">
+            <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
+            <span class="back-text">뒤로가기</span>
+        </button>
+    </a>
+</nav>
+
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="card mt-3">
+            <div class="card-body">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .medicine-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .medicine-item span {
+        margin-right: 10px;
+    }
+    .button-group button {
+        margin-left: 2px;
+    }
+</style>
+
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="card mt-3">
+            <div class="card-body">
+                {% for medicine in medicines %}
+                <div class="medicine-item">
+                    <span id="medicine-name-{{ medicine.id }}">{{ medicine.name }}</span>
+                    <div class="button-group">
+                        <button class="btn btn-primary" onclick="openModal({{ medicine.id }})">수정</button>
+                        <button class="btn btn-danger" onclick="deleteMedicine({{ medicine.id }})">삭제</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        var medicineItems = document.querySelectorAll('.medicine-item');
+        for (var i = 0; i < medicineItems.length; i++) {
+            var medicineName = medicineItems[i].querySelector('span');
+            medicineName.textContent = (i + 1) + '. ' + medicineName.textContent;
+        }
+    };
+</script>
+
+
+<!-- 약품 추가 버튼 -->
+<div style="text-align: center; margin-top: 20px;">
+    <button class="btn btn-primary" onclick="openModal()">약품 추가</button>
+</div>
+
+<!-- 약품 관리 모달 -->
+<div class="modal fade" id="manageMedicineModal" tabindex="-1" aria-labelledby="manageMedicineModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="manageMedicineModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+// 약품을 삭제하는 함수
+function deleteMedicine(id) {
+    if (confirm('정말로 삭제하시겠습니까?')) {
+        $.ajax({
+            url: "{% url 'manage:delete_medicine' %}",
+            type: "POST",
+            data: {
+                id: id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function() {
+                location.reload();
+            }
+        });
+    }
+}
+</script>
+{% endblock %}

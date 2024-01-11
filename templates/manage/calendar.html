@@ -1,0 +1,30 @@
+<!-- manage/templates/calendar.html -->
+<html>
+<head>
+    <title>Calendar</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fullcalendar.io/releases/main/core/main.css" rel="stylesheet" />
+    <link href="https://fullcalendar.io/releases/main/daygrid/main.css" rel="stylesheet" />
+    <script src="https://fullcalendar.io/releases/main/core/main.js"></script>
+    <script src="https://fullcalendar.io/releases/main/interaction/main.js"></script>
+    <script src="https://fullcalendar.io/releases/main/daygrid/main.js"></script>
+</head>
+
+<body>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['interaction', 'dayGrid'],
+                defaultView: 'dayGridMonth',
+                dateClick: function(info) {
+                    alert('Date: ' + info.dateStr);
+                }
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

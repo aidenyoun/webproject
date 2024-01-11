@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body text-center">
+                    <h1 class="card-title">정보 수정</h1>
+                    <hr>
+                    <form id="edit_medicine_form" method="POST" action="{% url 'manage:edit_medicine' %}">
+                        {% csrf_token %}
+                        <input type="hidden" id="medicine_id" name="id" value="{{ medicine.id }}">
+                        <div class="form-group">
+                            <label for="name">약품 이름:</label>
+                            <input type="text" id="name" name="name" value="{{ medicine.name }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="form">약품 형태:</label>
+                            <select id="form" name="form" class="form-control">
+                                <option value="">선택해주세요</option>
+                                <option value="정제" {% if medicine.form == "정제" %}selected{% endif %}>정제</option>
+                                <option value="캡슐" {% if medicine.form == "캡슐" %}selected{% endif %}>캡슐</option>
+                                <option value="시럽" {% if medicine.form == "시럽" %}selected{% endif %}>시럽</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="start_date">복용 시작일:  [필수]</label>
+                            <input type="date" id="start_date" name="start_date" value="{{ medicine.start_date }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">복용 종료일:  [필수]</label>
+                            <input type="date" id="end_date" name="end_date" value="{{ medicine.end_date }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="{{ form.morning_check.id_for_label }}">아침 알림 시간:</label><br>
+                                {{ form.morning_check }} 아침
+                                {{ form.morning_time }}
+                            </div>
+                            <div>
+                                <label for="{{ form.lunch_check.id_for_label }}">점심 알림 시간:</label><br>
+                                {{ form.lunch_check }} 점심
+                                {{ form.lunch_time }}
+                            </div>
+                            <div>
+                                <label for="{{ form.dinner_check.id_for_label }}">저녁 알림 시간:</label><br>
+                                {{ form.dinner_check }} 저녁
+                                {{ form.dinner_time }}
+                            </div>
+                        </div>
+                        <input type="submit" value="저장" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#submit_button').click(function(){
+        fetch("{% url 'manage:edit_medicine' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val(),
+            },
+                body: JSON.stringify({
+                    'id': $('#medicine_id').val(),
+                    'name': $('#name').val(),
+                    'form': $('#form').val(),
+                    'start_date': $('#start_date').val(),
+                    'end_date': $('#end_date').val(),
+                    'morning_check': $('#morning_check').is(':checked'),
+                    'morning_time': $('#morning_time').val(),
+                    'lunch_check': $('#lunch_check').is(':checked'),
+                    'lunch_time': $('#lunch_time').val(),
+                    'dinner_check': $('#dinner_check').is(':checked'),
+                    'dinner_time': $('#dinner_time').val(),
+                }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(() => {
+            alert('약품 정보가 성공적으로 수정되었습니다.');
+            location.reload();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('오류가 발생했습니다. 다시 시도해주세요.');
+        });
+    });
+});
+
+</script>
+{% endblock %}
