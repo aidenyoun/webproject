@@ -7,6 +7,9 @@ from django.urls import reverse
 from datetime import datetime
 from .models import Medicine
 from .forms import MedicineForm
+from django.views.decorators.csrf import csrf_exempt
+import datetime
+
 
 @login_required
 def manage(request):
@@ -102,3 +105,18 @@ def delete_medicine(request):
         medicine_name = medicine.name
         medicine.delete()
         return JsonResponse({'status': 'OK', 'deleted_medicine': medicine_name})
+
+@csrf_exempt
+def get_medications(request):
+    if request.method == 'POST':
+        date = request.POST['date']  # 클라이언트에서 보낸 날짜를 가져옵니다.
+        date = datetime.datetime.strptime(date, '%Y-%m-%d').date()  # 문자열을 날짜 객체로 변환합니다.
+
+        # 해당 날짜에 해당 사용자가 복용해야 하는 약의 목록을 가져옵니다.
+        medicines = Medicine.objects.filter(user=request.user, start_date__lte=date, end_date__gte=date)
+        medicine_list = []
+        for medicine in medicines:
+            medicine_list.append(medicine.name)
+
+        # 약의 목록을 JSON 형식으로 반환합니다.
+        return JsonResponse({'medicines': medicine_list})
