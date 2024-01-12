@@ -10,7 +10,7 @@
                 <img src="{% static 'img/calendar.png' %}" alt="Go to Calendar">
             </a>
         </div>
-        <div class="card-body" style="font-family: 'NanumSquareRoundB', sans-serif;">
+        <div class="card-body" style="font-family: 'NanumSquareRoundB', sans-serif; text-align: center;">
             {% for medication in medicines %}
                 <form method="POST" action="{% url 'save_medication' %}">
                     {% csrf_token %}
