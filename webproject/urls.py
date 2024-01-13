@@ -15,6 +15,4 @@ urlpatterns = [
     path('mypage/', include('mypage.urls')),
 
     path('', include('main.urls')),
-]
-if settings.DEBUG:  # DEBUG 모드일 때만
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

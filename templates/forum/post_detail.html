@@ -25,7 +25,7 @@
                     <h2 class="card-text">내용</h2>
                     {% if post.image %}
                     <div style="width: 100%; height: auto;">
-                        <img src="{{ post.image.url }}" style="max-width: 100%; height: auto;">
+                        <img src="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" style="max-width: 100%; height: auto;">
                     </div>
                     {% endif %}
                     <p class="card-text">{{ post.content | linebreaks }}</p>

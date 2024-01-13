@@ -3,7 +3,6 @@ from .models import Post, Comment
 
 class PostForm(forms.ModelForm):
     CATEGORY_CHOICES = [
-        ('notice', '공지사항'),
         ('free', '자유게시판'),
         ('question', '질문게시판'),
         ('review', '후기게시판'),
@@ -12,7 +11,7 @@ class PostForm(forms.ModelForm):
     category = forms.ChoiceField(choices=CATEGORY_CHOICES)
     class Meta:
         model = Post
-        fields = ['title', 'content', 'image', 'category']
+        fields = ['title', 'content', 'category', 'image']
 
 class CommentForm(forms.ModelForm):
     class Meta:

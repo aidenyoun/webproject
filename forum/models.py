@@ -16,7 +16,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     views = models.PositiveIntegerField(default=0)
-    image = models.ImageField(upload_to='media/forum', blank=True, null=True)
+    image = models.ImageField(upload_to='forum', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='free')

@@ -133,9 +133,21 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
+        },
     },
     'root': {
-        'handlers': ['console'],
-        'level': 'WARNING',
+        'handlers': ['console', 'file'],
+        'level': 'DEBUG',
+    },
+    'loggers': {
+        'name': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',  # 로거 레벨을 'INFO'로 변경합니다.
+            'propagate': False,
+        },
     },
 }

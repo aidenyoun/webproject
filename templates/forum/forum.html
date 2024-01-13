@@ -17,51 +17,6 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-function addPost() {
-    var title = document.getElementById('postTitle').value;
-    var content = document.getElementById('postContent').value;
-    var category = document.getElementById('postCategory').value;
-    var data = new URLSearchParams();
-    var token = localStorage.getItem('token');
-    var csrftoken = getCookie('csrftoken');
-    if (!token) {
-        console.error('Token is not found. User might not be logged in.');
-        return; // 토큰이 없으면 함수를 종료합니다.
-    }
-    data.append('title', title);
-    data.append('content', content);
-    data.append('category', category);
-
-        fetch('/api/posts/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'X-CSRFToken': csrftoken,
-                'Authorization': 'Token ' + token, // 인증 토큰 추가
-            },
-            body: data,
-        })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then((data) => {
-        alert('작성이 완료되었습니다!');
-        window.location.href = '/forum/' + data.pk + '/';
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('addPostButton').addEventListener('click', function() {
-            $('#postModal').modal('show');
-        });
-    });
     </script>
     <script>
         function showSearchForm() {
@@ -124,31 +79,31 @@ function addPost() {
         </div>
     </nav>
 
-        <div class="container my-3">
-            {% for post in posts %}
-            <div class="card mb-3">
-                <div class="row no-gutters align-items-center">  <!-- align-items-center를 추가하여 이미지와 텍스트를 세로 중앙에 배치합니다. -->
-                    {% if post.image %}
-                    <div class="col-md-2">  <!-- 이미지를 2열로 설정하고, -->
-                        <img src="{{ post.image.url }}" class="card-img" style="width: 100%; height: auto;">  <!-- 이미지의 너비를 100%로 설정하여 이미지가 열의 너비에 맞게 조절되도록 합니다. -->
+<div class="container my-3">
+    {% for post in posts %}
+    <div class="card mb-3">
+        <div class="row no-gutters align-items-center">
+            {% if post.image %}
+                    <div style="width: 100%; height: auto;">
+                        <img src="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" style="max-width: 100%; height: auto;">
                     </div>
-                    {% else %}
-                    {% endif %}
-                    <div class="col-md-10">  <!-- 텍스트를 10열로 설정합니다. -->
-                        <div class="row">
-                            <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
-                        </div>
-                        <div class="row">
-                            <div class="card-body">
-                                <p class="card-text">{{ post.content|truncatechars:100 }}</p>
-                                <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_at }} | 조회수: {{ post.views }} | 추천수: {{ post.likes }}</small></p>
-                            </div>
-                        </div>
+            {% else %}
+            {% endif %}
+            <div class="col-md-10">
+                <div class="row">
+                    <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
+                </div>
+                <div class="row">
+                    <div class="card-body">
+                        <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                        <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_at }} | 조회수: {{ post.views }} | 추천수: {{ post.likes }}</small></p>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
+    </div>
+    {% endfor %}
+</div>
 
     <div class="modal" tabindex="-1" role="dialog" id="postModal">
       <div class="modal-dialog" role="document">
@@ -159,7 +114,7 @@ function addPost() {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="postCategory">카테고리</label>
@@ -183,14 +138,59 @@ function addPost() {
                         <input type="file" class="form-control-file" id="postImage" name="image">
                     </div>
                 </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="addPost()">게시글 추가</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='./'">닫기</button>
-          </div>
+            </div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" onclick="addPost()">게시글 추가</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='./'">닫기</button>
+</div>
+<script>
+async function addPost() {
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+    const category = document.getElementById('postCategory').value;
+    const imageFile = document.getElementById('postImage').files[0];
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.error('Token is not found. User might not be logged in.');
+        return;
+    }
+
+    const data = new FormData();
+    data.append('title', title);
+    data.append('content', content);
+    data.append('category', category);
+    data.append('image', imageFile);
+
+    try {
+        const response = await fetch('/api/posts/', {
+            method: 'POST',
+            headers: { 'Authorization': 'Token ' + token },
+            body: data,
+        });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        const result = await response.json();
+        alert('작성이 완료되었습니다!');
+        window.location.href = '/forum/' + result.pk + '/';
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('addPostButton').addEventListener('click', () => {
+        $('#postModal').modal('show');
+    });
+});
+
+        </script>
         </div>
       </div>
-    </div>
+</div>
+
     {% if request.user.is_authenticated %}
     <div class="container my-3">
         <button class="btn btn-link fixed-button" id="addPostButton">
@@ -200,6 +200,7 @@ function addPost() {
     </div>
     {% endif %}
 </body>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

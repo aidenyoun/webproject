@@ -1,17 +1,16 @@
-import json
-
 from django.contrib.auth.decorators import login_required
 import logging
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, UserProfile, Comment
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
-from rest_framework.parsers import JSONParser
 from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
 
+logger = logging.getLogger('name')
 
 def forum(request, category=None):
     q = request.GET.get('q', '')
@@ -23,39 +22,88 @@ def forum(request, category=None):
         posts = posts.filter(title__icontains=q)
     return render(request, 'forum/forum.html', {'posts': posts})
 
+
 @login_required
 @api_view(['GET', 'POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def post_new(request):
-    logger = logging.getLogger(__name__)
-
     if request.method == 'POST':
-        logger.info('POST method received')
-        data = JSONParser().parse(request)
-        form = PostForm(data, request.FILES)  # request.FILES added
-        if form.is_valid():
-            logger.info('Form is valid')
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            if request.is_ajax():
-                return JsonResponse({'message': '게시글이 성공적으로 추가되었습니다.', 'pk': post.pk})
-            else:
-                return redirect('post_detail', pk=post.pk)
-        else:
-            logger.warning('Form is not valid')
-            errors = {field: error.get_json_data() for field, error in form.errors.items()}
-            if request.is_ajax():
-                return JsonResponse({'message': '모든 필드를 채워주세요.', 'errors': errors})
-            else:
-                return render(request, 'forum/post_new.html', {'form': form})
+        return handle_post_request(request)
     else:
-        form = PostForm()
-        if request.is_ajax():
-            return JsonResponse({'message': 'Form is ready', 'form': form.as_p()})
-        else:
-            return render(request, 'forum/post_new.html', {'form': form})
+        return handle_get_request(request)
+
+
+def handle_post_request(request):
+    form = PostForm(request.data, request.FILES)
+
+    if form.is_valid():
+        post = save_post_form(request, form)
+    else:
+        return handle_form_errors(request, form)
+
+    if request_is_ajax(request):
+        return JsonResponse({'message': '게시글이 성공적으로 추가되었습니다.', 'pk': post.pk})
+    else:
+        return HttpResponseRedirect('/forum/')
+
+
+def handle_get_request(request):
+    form = PostForm()
+
+    if request_is_ajax(request):
+        return JsonResponse({'message': 'Form is ready', 'form': form.as_p()})
+    else:
+        return render(request, 'forum/post_new.html', {'form': form})
+
+
+def save_post_form(request, form):
+    post = form.save(commit=False)
+    post.author = request.user
+    if 'image' in request.FILES:
+        post.image = save_image(request.FILES['image'])
+    post.save()
+    return post
+
+
+def save_image(uploaded_image):
+    fs = FileSystemStorage(location="forum", base_url="forum")
+    filename = fs.save(uploaded_image.name, uploaded_image)
+    return fs.url(filename)
+
+
+def handle_form_errors(request, form):
+    log_form_errors(form)
+    errors = {field: error.get_json_data() for field, error in form.errors.items()}
+
+    if request_is_ajax(request):
+        return JsonResponse({'message': '모든 필드를 채워주세요.', 'errors': errors})
+    else:
+        return render(request, 'forum/post_new.html', {'form': form})
+
+
+def log_form_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            logger.warning('Error in %s: %s', field, error)
+
+
+def request_is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.views += 1
+    post.save()
+    comments = Comment.objects.filter(post=post)
+    comments_user_has_liked = [comment.pk for comment in comments if comment.is_liked_by_user(request.user)]
+    context = {
+        'post': post,
+        'comments_user_has_liked': comments_user_has_liked,
+    }
+    return render(request, 'forum/post_detail.html', context)
 
 @login_required
 @authentication_classes([TokenAuthentication])
@@ -72,6 +120,7 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'forum/post_edit.html', {'form': form})
+
 @login_required
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -83,39 +132,7 @@ def post_delete(request, pk):
     return render(request, 'forum/post_delete.html', {'post': post})
 
 
-@api_view(['GET', 'POST'])
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def post_view(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return JsonResponse({'message': 'Success', 'pk': post.pk})
-        else:
-            errors = form.errors.as_json()
-            return JsonResponse({'message': 'Form is not valid', 'errors': errors})
-    else:
-        return JsonResponse({'message': 'Not a POST request'})
 
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-
-    post.views += 1
-    post.save()
-
-    comments = Comment.objects.filter(post=post)
-    comments_user_has_liked = [comment.pk for comment in comments if comment.is_liked_by_user(request.user)]
-
-    context = {
-        'post': post,
-        'comments_user_has_liked': comments_user_has_liked,
-    }
-    return render(request, 'forum/post_detail.html', context)
 @login_required
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
