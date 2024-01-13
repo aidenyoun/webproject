@@ -1,6 +1,10 @@
+import os
+
 from django.contrib.auth.decorators import login_required
 import logging
 from django.shortcuts import render, get_object_or_404, redirect
+
+from webproject import settings
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.http import JsonResponse, HttpResponseRedirect
@@ -39,13 +43,12 @@ def handle_post_request(request):
 
     if form.is_valid():
         post = save_post_form(request, form)
+        if request_is_ajax(request):
+            return JsonResponse({'message': '게시글이 성공적으로 추가되었습니다.', 'pk': post.pk})
+        else:
+            return HttpResponseRedirect('/forum/post/' + str(post.pk))
     else:
         return handle_form_errors(request, form)
-
-    if request_is_ajax(request):
-        return JsonResponse({'message': '게시글이 성공적으로 추가되었습니다.', 'pk': post.pk})
-    else:
-        return HttpResponseRedirect('/forum/')
 
 
 def handle_get_request(request):
@@ -65,9 +68,8 @@ def save_post_form(request, form):
     post.save()
     return post
 
-
 def save_image(uploaded_image):
-    fs = FileSystemStorage(location="forum", base_url="forum")
+    fs = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'forum'))
     filename = fs.save(uploaded_image.name, uploaded_image)
     return fs.url(filename)
 

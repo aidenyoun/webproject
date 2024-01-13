@@ -23,11 +23,11 @@
                     <p class="card-text">추천수 : {{ post.liked_users.count }}</p>
                     <hr>
                     <h2 class="card-text">내용</h2>
-                    {% if post.image %}
-                    <div style="width: 100%; height: auto;">
-                        <img src="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" style="max-width: 100%; height: auto;">
-                    </div>
-                    {% endif %}
+{% if post.image %}
+<div style="width: 100%; height: auto;">
+    <img src="/media/forum/{{ post.image.name|slice:'6:' }}" style="max-width: 100%; height: auto;">
+</div>
+{% endif %}
                     <p class="card-text">{{ post.content | linebreaks }}</p>
 
                     <!-- 자신이 작성한 게시물일 경우 수정 버튼 추가 -->

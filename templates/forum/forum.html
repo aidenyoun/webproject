@@ -83,12 +83,11 @@ function getCookie(name) {
     {% for post in posts %}
     <div class="card mb-3">
         <div class="row no-gutters align-items-center">
-            {% if post.image %}
-                    <div style="width: 100%; height: auto;">
-                        <img src="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" style="max-width: 100%; height: auto;">
-                    </div>
-            {% else %}
-            {% endif %}
+                {% if post.image %}
+                <div style="width: 100%; height: auto;">
+                    <img src="/media/forum/{{ post.image.name|slice:'6:' }}" style="max-width: 100%; height: auto;">
+                </div>
+                {% endif %}
             <div class="col-md-10">
                 <div class="row">
                     <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
@@ -165,7 +164,8 @@ async function addPost() {
     try {
         const response = await fetch('/api/posts/', {
             method: 'POST',
-            headers: { 'Authorization': 'Token ' + token },
+            headers: { 'Authorization': 'Token ' + token,
+                        'X-Requested-With': 'XMLHttpRequest'    },
             body: data,
         });
 
@@ -173,10 +173,10 @@ async function addPost() {
 
         const result = await response.json();
         alert('작성이 완료되었습니다!');
-        window.location.href = '/forum/' + result.pk + '/';
+        window.location.href = '/forum/post/' + result.pk + '/';
 
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error:', error.message);
     }
 }
 
