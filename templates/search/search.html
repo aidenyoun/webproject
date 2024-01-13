@@ -3,45 +3,28 @@
 {% block content %}
 
 <!DOCTYPE html>
-<html lang="ko">
-        <style>
-        /* 뒤로가기 버튼과 제목 사이의 여백 */
-        .navbar-brand {
-            margin-bottom: 5px;
-        }
-        /* 페이지 가운데에 버튼 위치 */
-        .centered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        </style>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,">
-    <title>약품 찾기</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+
 <body>
     <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;">
-            <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
-            <span class="back-text">뒤로가기</span>
-        </button>
-    </a>
+        <a class="navbar-brand" href="/">
+            <button class="btn btn-link" style="font-family: 'NanumSquareRoundB', sans-serif;">
+                <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
+                <span class="back-text">뒤로가기</span>
+            </button>
+        </a>
     </nav>
+
     <div class="container text-center mt-5 " style="font-family: 'NanumSquareRoundB', sans-serif;">
-        <h1 class="mt-5" >약품 찾기</h1>
+        <h1 class="mt-10" >약품 찾기</h1>
     </div>
-    
-    <div class="container text-center mt-5 centered">
+
+    <div class="container text-center mt-5 d-flex flex-column align-items-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <a href="{% url 'search:name_search' %}" class="btn btn-light btn-block btn-lg mb-4" style="font-family: 'NanumSquareRoundB', sans-serif;">약품명으로 찾기</a>
-                <button class="btn btn-light btn-block btn-lg" style="font-family: 'NanumSquareRoundB', sans-serif;">사진으로 찾기</button>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'search:pic_search' %}" class="btn btn-light btn-block btn-lg mb-4" style="font-family: 'NanumSquareRoundB', sans-serif;">사진으로 찾기</a>
             </div>
         </div>
     </div>
@@ -50,6 +33,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+
 
 {% endblock %}

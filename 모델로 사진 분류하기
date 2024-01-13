@@ -5,7 +5,6 @@ from tensorflow.keras.models import load_model
 class YourAppConfig(AppConfig):
     name = 'your_app_name'
     model = load_model('path_to_your_model/Intel_image_classification_model.h5')
->>>여기 부분은 모델이 로드되어 있는 경로로 설정해주시면 됩니다.
 
 # views.py
 from django.http import JsonResponse
@@ -30,5 +29,3 @@ def classify_image(request):
         return JsonResponse({'predicted_class': str(predicted_class[0])})
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
-
-여원님께서 설정해둔 장고 설정에 맞게 조금 수정해주시면 될 듯 합니다!
