@@ -12,7 +12,7 @@ class PostForm(forms.ModelForm):
     category = forms.ChoiceField(choices=CATEGORY_CHOICES)
     class Meta:
         model = Post
-        fields = ['title', 'content', 'category']
+        fields = ['title', 'content', 'image', 'category']
 
 class CommentForm(forms.ModelForm):
     class Meta:

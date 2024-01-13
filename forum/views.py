@@ -1,7 +1,7 @@
 import json
 
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
+import logging
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, UserProfile, Comment
 from .forms import PostForm, CommentForm
@@ -28,10 +28,14 @@ def forum(request, category=None):
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def post_new(request):
+    logger = logging.getLogger(__name__)
+
     if request.method == 'POST':
+        logger.info('POST method received')
         data = JSONParser().parse(request)
-        form = PostForm(data)
+        form = PostForm(data, request.FILES)  # request.FILES added
         if form.is_valid():
+            logger.info('Form is valid')
             post = form.save(commit=False)
             post.author = request.user
             post.save()
@@ -40,6 +44,7 @@ def post_new(request):
             else:
                 return redirect('post_detail', pk=post.pk)
         else:
+            logger.warning('Form is not valid')
             errors = {field: error.get_json_data() for field, error in form.errors.items()}
             if request.is_ajax():
                 return JsonResponse({'message': '모든 필드를 채워주세요.', 'errors': errors})
@@ -51,13 +56,14 @@ def post_new(request):
             return JsonResponse({'message': 'Form is ready', 'form': form.as_p()})
         else:
             return render(request, 'forum/post_new.html', {'form': form})
+
 @login_required
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -73,7 +79,7 @@ def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         post.delete()
-        return redirect('post_list')
+        return redirect('forum:forum')
     return render(request, 'forum/post_delete.html', {'post': post})
 
 

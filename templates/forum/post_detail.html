@@ -23,21 +23,68 @@
                     <p class="card-text">추천수 : {{ post.liked_users.count }}</p>
                     <hr>
                     <h2 class="card-text">내용</h2>
+                    {% if post.image %}
+                    <div style="width: 100%; height: auto;">
+                        <img src="{{ post.image.url }}" style="max-width: 100%; height: auto;">
+                    </div>
+                    {% endif %}
                     <p class="card-text">{{ post.content | linebreaks }}</p>
-                    <div class="d-flex justify-content-between">
-                        {% if user.is_authenticated and user == post.author %}
-                        <div>
-                            <a href="{% url 'forum:post_edit' post.pk %}"><button type="button">수정</button></a>
-                            <a href="{% url 'forum:post_delete' post.pk %}"><button type="button">삭제</button></a>
+
+                    <!-- 자신이 작성한 게시물일 경우 수정 버튼 추가 -->
+                    {% if request.user.is_authenticated and request.user == post.author %}
+                        <a href="{% url 'forum:post_edit' post.pk %}" class="btn btn-info btn-sm">수정</a>
+                    {% endif %}
+
+                    <script>
+                    function confirmDelete() {
+                        var result = confirm("정말로 삭제하시겠습니까?");
+                        if (result) {
+                            window.location.href = "{% url 'forum:post_delete' post.pk %}";
+                        }
+                    }
+                    </script>
+
+                    {% if request.user.is_authenticated and request.user == post.author %}
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                        삭제
+                    </button>
+
+                    <!-- 삭제 확인 모달 -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="document" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">게시글 삭제</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    정말로 삭제하시겠습니까?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                                    <form method="POST" action="{% url 'forum:post_delete' post.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">삭제</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        {% endif %}
-                    {% if request.user.is_authenticated %}
+                    </div>
+
+                    {% endif %}
+
+                    <!-- 로그인한 사용자만 추천 가능 -->
+                    {% if request.user.is_authenticated and request.user != post.author %}
                         <div>
                            <a href="{% url 'forum:recommend_post' post.pk %}" onclick="{% if user.is_authenticated and post not in user.liked_posts.all %}return confirmRecommendation({{ post.pk }}, 'post');{% else %}event.preventDefault();{% endif %}">
                             {% if user.is_authenticated and post not in user.liked_posts.all %}
-                                <button type="button">추천</button>
+                                <button type="button" class="btn btn-primary btn-sm">추천</button>
                             {% else %}
-                                <button type="button" onclick="alert('이미 이 게시물을 추천하셨습니다.');">추천</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="alert('이미 이 게시물을 추천하셨습니다.');">추천</button>
                             {% endif %}
                             </a>
                         </div>
@@ -56,10 +103,13 @@
                                         <p class="comment-likes">추천수: {{ comment.likes }}</p>
                                     </div>
                                   <div>
+                                    <!-- 로그인한 사용자만 댓글 수정/삭제 가능 -->
                                     {% if user.is_authenticated and user == comment.author %}
                                     <a href="{% url 'forum:comment_edit' comment.pk %}"><button>수정</button></a>
                                     <a href="{% url 'forum:comment_delete' comment.pk %}"><button>삭제</button></a>
-                                    {% elif user.is_authenticated %}
+
+                                    <!-- 로그인한 사용자만 댓글 추천 가능 -->
+                                    {% elif user.is_authenticated and user != comment.author %}
                                     <!-- 추천 버튼에 onclick 이벤트 추가 -->
                                     {% if user.is_authenticated %}
                                         {% if comment.pk not in comments_user_has_liked %}
@@ -74,6 +124,8 @@
                             </div>
                             {% endfor %}
                         </div>
+
+                    <!-- 로그인한 사용자만 댓글 작성 가능 -->
                     {% if user.is_authenticated %}
                     <form action="{% url 'forum:comment_new' post.pk %}" method="POST">
                         {% csrf_token %}
@@ -85,8 +137,13 @@
             </div>
         </div>
     </div>
-</div>
+    <!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
 function confirmRecommendation(id, type) {
@@ -102,7 +159,5 @@ function confirmRecommendation(id, type) {
     }
     return false;
 }
-
-
 </script>
 {% endblock %}

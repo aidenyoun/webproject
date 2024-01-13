@@ -124,27 +124,31 @@ function addPost() {
         </div>
     </nav>
 
-    <div class="container my-3">
-        {% for post in posts %}
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
+        <div class="container my-3">
+            {% for post in posts %}
+            <div class="card mb-3">
+                <div class="row no-gutters align-items-center">  <!-- align-items-center를 추가하여 이미지와 텍스트를 세로 중앙에 배치합니다. -->
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" class="card-img">
+                    <div class="col-md-2">  <!-- 이미지를 2열로 설정하고, -->
+                        <img src="{{ post.image.url }}" class="card-img" style="width: 100%; height: auto;">  <!-- 이미지의 너비를 100%로 설정하여 이미지가 열의 너비에 맞게 조절되도록 합니다. -->
+                    </div>
                     {% else %}
                     {% endif %}
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
-                        <p class="card-text">{{ post.content|truncatechars:100 }}</p>
-                        <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_at }} | 조회수: {{ post.views }} | 추천수: {{ post.likes }}</small></p>
+                    <div class="col-md-10">  <!-- 텍스트를 10열로 설정합니다. -->
+                        <div class="row">
+                            <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
+                        </div>
+                        <div class="row">
+                            <div class="card-body">
+                                <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                                <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_at }} | 조회수: {{ post.views }} | 추천수: {{ post.likes }}</small></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="postModal">
       <div class="modal-dialog" role="document">
@@ -156,25 +160,29 @@ function addPost() {
             </button>
           </div>
           <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <label for="postCategory">카테고리</label>
-                    <select class="form-control" id="postCategory">
-                        <option value="free">자유게시판</option>
-                        <option value="question">질문게시판</option>
-                        <option value="review">후기게시판</option>
-                        <option value="suggestion">건의사항</option>
-                    </select>
-                </div>
-              <div class="form-group">
-                <label for="postTitle">제목</label>
-                <input type="text" class="form-control" id="postTitle" placeholder="제목을 입력하세요">
-              </div>
-              <div class="form-group">
-                <label for="postContent">내용</label>
-                <textarea class="form-control" id="postContent" rows="3" placeholder="내용을 입력하세요"></textarea>
-              </div>
-            </form>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="postCategory">카테고리</label>
+                        <select class="form-control" id="postCategory" name="category">
+                            <option value="free">자유게시판</option>
+                            <option value="question">질문게시판</option>
+                            <option value="review">후기게시판</option>
+                            <option value="suggestion">건의사항</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="postTitle">제목</label>
+                        <input type="text" class="form-control" id="postTitle" name="title" placeholder="제목을 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">내용</label>
+                        <textarea class="form-control" id="postContent" name="content" rows="3" placeholder="내용을 입력하세요"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="postImage">이미지 업로드</label>
+                        <input type="file" class="form-control-file" id="postImage" name="image">
+                    </div>
+                </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="addPost()">게시글 추가</button>
