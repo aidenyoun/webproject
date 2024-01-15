@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% load static %}
+{% load my_filters %}
+{% block content %}
+<script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+    </script>
+    <script>
+        function showSearchForm() {
+            var searchForm = document.getElementById('searchForm');
+            if (searchForm.style.display === "none") {
+                searchForm.style.display = "block";
+            } else {
+                searchForm.style.display = "none";
+            }
+        }
+    function changeColor(e) {
+        var btns = document.querySelectorAll(".btn");
+        btns.forEach(btn => {
+            btn.style.color = 'black';
+        });
+        e.target.style.color = 'red';
+    }
+    function changeCategory(e) {
+        var clickedButton = e.target;
+        var category = clickedButton.getAttribute('data-category');
+
+        if (category) {
+            currentCategory = category;
+        }
+        changeColor(e);
+    }
+    </script>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        .fixed-button {
+            font-family: 'NanumSquareRoundB', sans-serif;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: lightgray;
+        }
+    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light" style="font-family: 'NanumSquareRoundB', sans-serif; border-bottom: 1px solid gray;">
+        <a class="navbar-brand" href="/forum/" style="padding-left: 20px;">커뮤니티</a>
+        <form class="form-inline" id="searchForm" action="/forum/" method="get" style="display: none;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+        </form>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showSearchForm()">검색</button>
+    </nav>
+
+    <nav class="navbar navbar-light bg-light container-fluid" style="font-family: 'NanumSquareRoundB', sans-serif; border-bottom: 1px solid gray;">
+        <div class="btn-group" role="group" aria-label="Basic example" style="overflow-x: auto; white-space: nowrap; width: 100%;" onclick="changeColor(event)">
+            <button type="button" class="btn btn-light" onclick="location.href='/forum/'">전체</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'notice' %}'">공지사항</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'free' %}'">자유게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'review' %}'">후기게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'question' %}'">질문게시판</button>
+            <button type="button" class="btn btn-light" onclick="location.href='{% url 'forum:forum_category' 'suggestion' %}'">건의게시판</button>
+        </div>
+    </nav>
+
+<div class="container my-3">
+    {% for post in posts %}
+    <div class="card mb-3">
+        <div class="row no-gutters align-items-center">
+                {% if post.image %}
+                <div style="width: 100%; height: auto;">
+                    <img src="/media/forum/{{ post.image.name|slice:'6:' }}" style="max-width: 100%; height: auto;">
+                </div>
+                {% endif %}
+            <div class="col-md-10">
+                <div class="row">
+                    <h5 class="card-title"><a href="{% url 'forum:post_detail' post.pk %}">{{ post.title }}     |     {{ post.category|category_to_korean}}</a></h5>
+                </div>
+                <div class="row">
+                    <div class="card-body">
+                        <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                        <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_at }} | 조회수: {{ post.views }} | 추천수: {{ post.likes }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="postModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">새 게시글 작성</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+             <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="postCategory">카테고리</label>
+                        <select class="form-control" id="postCategory" name="category">
+                            <option value="free">자유게시판</option>
+                            <option value="question">질문게시판</option>
+                            <option value="review">후기게시판</option>
+                            <option value="suggestion">건의사항</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="postTitle">제목</label>
+                        <input type="text" class="form-control" id="postTitle" name="title" placeholder="제목을 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">내용</label>
+                        <textarea class="form-control" id="postContent" name="content" rows="3" placeholder="내용을 입력하세요"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="postImage">이미지 업로드</label>
+                        <input type="file" class="form-control-file" id="postImage" name="image">
+                    </div>
+                </form>
+            </div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" onclick="addPost()">게시글 추가</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='./'">닫기</button>
+</div>
+<script>
+async function addPost() {
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+    const category = document.getElementById('postCategory').value;
+    const imageFile = document.getElementById('postImage').files[0];
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.error('Token is not found. User might not be logged in.');
+        return;
+    }
+
+    const data = new FormData();
+    data.append('title', title);
+    data.append('content', content);
+    data.append('category', category);
+    data.append('image', imageFile);
+
+    try {
+        const response = await fetch('/api/posts/', {
+            method: 'POST',
+            headers: { 'Authorization': 'Token ' + token,
+                        'X-Requested-With': 'XMLHttpRequest'    },
+            body: data,
+        });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        const result = await response.json();
+        alert('작성이 완료되었습니다!');
+        window.location.href = '/forum/post/' + result.pk + '/';
+
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('addPostButton').addEventListener('click', () => {
+        $('#postModal').modal('show');
+    });
+});
+
+        </script>
+        </div>
+      </div>
+</div>
+
+    {% if request.user.is_authenticated %}
+    <div class="container my-3">
+        <button class="btn btn-link fixed-button" id="addPostButton">
+            <img src="{% static 'img/chat.png' %}" alt="Chat icon" class="back-icon">
+            <span class="back-text">게시글 추가</span>
+        </button>
+    </div>
+    {% endif %}
+</body>
+
+</html>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{{ block.super }}
+{% endblock %}

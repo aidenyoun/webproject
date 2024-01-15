@@ -1,0 +1,108 @@
+{% load static %}
+<head>
+<style>
+    .navbar-brand {
+        margin-bottom: 5px;
+    }
+    .btn-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
+    <style>
+        @font-face {
+            font-family: 'NanumSquareRoundB';
+            src: url('/static/font/NanumSquareRoundB.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'NanumSquareRoundL';
+            src: url('/static/font/NanumSquareRoundL.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'NanumSquareRoundR';
+            src: url('/static/font/NanumSquareRoundR.ttf') format('truetype');
+        }
+        .back-icon {
+            max-width: 35px; /* 이미지의 최대 너비를 설정합니다 */
+            height: auto; /* 이미지의 높이를 자동으로 조정합니다 */
+        }
+
+        .back-text {
+            display: block; /* 새로운 라인에 텍스트를 표시합니다 */
+            font-size: 0.75rem; /* 작은 글꼴 크기로 설정합니다 */
+            font-family: 'NanumSquareRoundB', sans-serif; /* 글꼴 스타일을 지정합니다 */
+            color: #555; /* 글자 색상을 설정합니다 */
+            margin-top: 5px; /* 이미지와 텍스트 사이의 간격을 설정합니다 */
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <!-- pybo CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Capsule Care</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                    }
+                }
+            });
+    </script>
+
+</head>
+<body>
+<!-- 네비게이션바 -->
+{% include "navbar.html" %}
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+{% block content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+<!-- Bootstrap JS -->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<!-- 자바스크립트 Start -->
+{% block script %}
+
+    <script>
+        var currentCategory = "전체";
+        function changeCategory(e) {
+            var clickedButton = e.target;
+            var category = clickedButton.getAttribute('data-category');
+
+            if (category) {
+                currentCategory = category;
+            }
+        }
+    </script>
+{% endblock %}
+<!-- 자바스크립트 End -->
+</body>
+</html>

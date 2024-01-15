@@ -1,0 +1,24 @@
+class PillDataset(Dataset):
+    def __init__(self, list_json, list_image, list_label, transform):
+
+        self.json_path = list_json
+        self.img_path = list_image
+        self.label_path = list_label
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.label_path)
+
+    def __getitem__(self, idx):
+        json = self.json_path[idx]
+        image_path = self.img_path[idx]
+        label = self.label_path[idx]
+        label = nn.functional.one_hot(torch.tensor(label), num_classes=100)
+        dict_png_info = read_dict_from_json(json)
+        pill_cls = dict_png_info['images'][0]['dl_mapping_code']
+        pill_name = dict_png_info['images'][0]['dl_name']
+        image = open_opencv_file(image_path)
+
+        if self.transform:
+            image = self.transform(image)
+        return image, label, pill_name, pill_cls

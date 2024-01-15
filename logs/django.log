@@ -1,0 +1,2146 @@
+POST method received
+Bad Request: /api/posts/
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Bad Request: /api/posts/
+C:\Users\youny\PycharmProjects\webproject\forum\forms.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Bad Request: /api/posts/
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Bad Request: /api/posts/
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Bad Request: /api/posts/
+POST method received
+Bad Request: /api/posts/
+POST method received
+Bad Request: /api/posts/
+POST method received
+Bad Request: /api/posts/
+POST method received
+Bad Request: /api/posts/
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+POST method received
+Bad Request: /api/posts/
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {}>
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 416, in __getattr__
+    return getattr(self._request, attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'is_ajax'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 53, in post_new
+    if request.is_ajax():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 418, in __getattr__
+    return self.__getattribute__(attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Request' object has no attribute 'is_ajax'
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test1.png (image/jpeg)>]}>
+filename: test1.png
+uploaded_image_url: /media/forum/test1.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 416, in __getattr__
+    return getattr(self._request, attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'is_ajax'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 53, in post_new
+    if request.is_ajax():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 418, in __getattr__
+    return self.__getattribute__(attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Request' object has no attribute 'is_ajax'
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test1.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test1.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: ∞‘∑ÁªÔ¡§.png (image/jpeg)>]}>
+filename: ∞‘∑ÁªÔ¡§.png
+uploaded_image_url: /forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 53, in post_new
+    if request._request.is_ajax():
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'is_ajax'
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test.png
+uploaded_image_url: media/forum/test.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 53, in post_new
+    if request._request.is_ajax():
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'is_ajax'
+Not Found: /media/media/forum/test.png
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+Not Found: /media/media/forum/test.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test.png
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test_901ltDw.png
+uploaded_image_url: media/forum/test_901ltDw.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 52, in post_new
+    if request._request.is_ajax():
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'is_ajax'
+Not Found: /media/media/forum/test_901ltDw.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/media/forum/test_901ltDw.png
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test1.png
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95.png
+Not Found: /media/media/forum/test_901ltDw.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/media/forum/test1.png
+Not Found: /media/media/forum/test1.png
+Not Found: /media/media/forum/test_901ltDw.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/media/forum/test_901ltDw.png
+Not Found: /media/media/forum/test_901ltDw.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test_B4kQEPI.png
+uploaded_image_url: media/forum/test_B4kQEPI.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 52, in post_new
+    if request._request.is_ajax():
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'is_ajax'
+Not Found: /media/media/forum/test_B4kQEPI.png
+Not Found: /media/media/forum/test_B4kQEPI.png
+Not Found: /media/media/forum/test_B4kQEPI.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_B4kQEPI.png
+Not Found: /media/media/forum/test_B4kQEPI.png
+Not Found: /media/media/forum/test_B4kQEPI.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {}>
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {}>
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/media/forum/test_B4kQEPI.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/media/forum/test_B4kQEPI.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {}>
+Not Found: /post_detail
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test_PlHxOSJ.png
+uploaded_image_url: media/forum/test_PlHxOSJ.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /forum/media/forum/test_B4kQEPI.png
+Not Found: /forum/media/forum/test_PlHxOSJ.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/media/forum/test_PlHxOSJ.png
+Not Found: /forum/media/forum/test_B4kQEPI.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/76/
+C:\Users\youny\PycharmProjects\webproject\forum\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§.png
+Not Found: /forum/forum/∞‘∑ÁªÔ¡§_200mgPTP.jpg
+Not Found: /forum/forum/K-001061_0_0_0_0_60_000_200.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test_Aufw6qb.png
+uploaded_image_url: media/forum/test_Aufw6qb.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_Aufw6qb.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: ∞‘∑ÁªÔ¡§.png (image/jpeg)>]}>
+filename: ∞‘∑ÁªÔ¡§_To8Ourh.png
+uploaded_image_url: media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Watching for file changes with StatReloader
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test_5CuG5mM.png
+uploaded_image_url: media/forum/test_5CuG5mM.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+Unauthorized: /api/posts/
+Not Found: /media/media/forum/test_5CuG5mM.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/test_5CuG5mM.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_5CuG5mM.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+C:\Users\youny\PycharmProjects\webproject\forum\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_5CuG5mM.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/test_5CuG5mM.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {}>
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 55, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+POST method received
+Form is valid
+request.FILES: <MultiValueDict: {'image': [<InMemoryUploadedFile: test.png (image/jpeg)>]}>
+filename: test_YdBtaBY.png
+uploaded_image_url: media/forum/test_YdBtaBY.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 54, in post_new
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'url'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'url'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 1489, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 1489, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 1489, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 1489, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 1489, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'url'
+Internal Server Error: /forum/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 22, in forum
+    return render(request, 'forum/forum.html', {'posts': posts})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 860, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'replace'
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 31, in post_new
+    return handle_post_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 47, in handle_post_request
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /api/posts/forum/post_detail.html
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /api/posts/forum/post_detail.html
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/posts/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 31, in post_new
+    return handle_post_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\PycharmProjects\webproject\forum\views.py", line 47, in handle_post_request
+    return redirect('post_detail', pk=post.pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'post_detail' not found. 'post_detail' is not a valid view function or pattern name.
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_YdBtaBY.png
+Not Found: /media/media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95_To8Ourh.png
+Not Found: /media/media/forum/test_Aufw6qb.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_tVUc3kX.png
+Not Found: /media/media/forum/test_tVUc3kX.png
+Not Found: /media/media/forum/test_tVUc3kX.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test_tVUc3kX.png
+Not Found: /media/media/forum/test_tVUc3kX.png
+Not Found: /media/media/forum/test.png
+Not Found: /media/media/forum/test.png
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/test.png
+Not Found: /media/forum/test_z0VKVJi.png
+Not Found: /media/media/forum/test.png
+Watching for file changes with StatReloader
+Not Found: /media/forum/test_z0VKVJi.png
+Not Found: /media/media/forum/test.png
+C:\Users\youny\PycharmProjects\webproject\search\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_Hgpzkn1.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_Hgpzkn1.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_Hgpzkn1.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_Hgpzkn1.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_Hgpzkn1.jpg
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/forum/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/forum/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Not Found: /media/media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C)_4pVk7Nq.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /forum/109/
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /forum/post/106/
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /forum/110/
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /forum/111/
+Not Found: /media/forum/%ED%82%A4%EB%AA%A8%EB%9E%84%EC%97%90%EC%8A%A4%EC%A0%95%2040mgPTP.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /forum/posts/112/
+Not Found: /media/forum/%EB%B6%80%EA%B4%91%EB%A9%94%ED%8B%B0%EB%A7%88%EC%A1%B8%EC%A0%95.jpg
+Not Found: /media/forum/%ED%82%A4%EB%AA%A8%EB%9E%84%EC%97%90%EC%8A%A4%EC%A0%95%2040mgPTP.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EB%B6%80%EA%B4%91%EB%A9%94%ED%8B%B0%EB%A7%88%EC%A1%B8%EC%A0%95.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%ED%82%A4%EB%AA%A8%EB%9E%84%EC%97%90%EC%8A%A4%EC%A0%95%2040mgPTP.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%ED%82%A4%EB%AA%A8%EB%9E%84%EC%97%90%EC%8A%A4%EC%A0%95%2040mgPTP.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/media/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/media/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+C:\Users\youny\PycharmProjects\webproject\forum\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/media/%EB%84%A4%EC%98%A4%EB%A9%94%EB%94%94%EC%BD%94%ED%91%B8%EC%A0%95.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/media/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/
+Not Found: /media/
+Not Found: /media/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /forum/post/118/forum//media/∞‘∑ÁªÔ¡§ 200mgPTP.jpg
+Not Found: /media/∞‘∑ÁªÔ¡§ 200mgPTP.jpg
+Not Found: /media/∞‘∑ÁªÔ¡§ 200mgPTP.jpg
+Not Found: /forum/post/118/forum//∞‘∑ÁªÔ¡§ 200mgPTP.jpg
+Not Found: /forum/post/118/forum/∞‘∑ÁªÔ¡§ 200mgPTP.jpg
+Not Found: /media/media/%EA%B2%8C%EB%A3%A8%EC%82%BC%EC%A0%95%20200mgPTP.jpg
+Not Found: /media/media/forum/%EB%A6%AC%EB%8B%A8%EC%A0%95(%ED%83%84%EC%82%B0%EB%A6%AC%ED%8A%AC).jpg
+Not Found: /media/media/forum/%EB%A7%88%EC%9D%B4%EC%95%94%EB%B6%80%ED%86%A8%EC%A0%9C%ED%94%BC%EC%A0%95%20400mg.jpg
+Not Found: /media/forum/%EC%8B%B8%EC%9D%B4%EB%A9%94%ED%8A%B8%EC%A0%95%2C300mg.jpg
+Not Found: /media/forum/%ED%9B%84%EB%A6%AD%EC%8A%A4%EC%A0%95(%ED%91%B8%EB%A1%9C%EC%84%B8%EB%AF%B8%EB%93%9C).jpg
+Not Found: /media/forum/%EC%85%89%ED%8A%B8%EB%A6%B0%EC%A0%95.jpg
+Not Found: /media/forum//forum/∏Æ¥‹¡§(≈∫ªÍ∏Æ∆¨).jpg
+Not Found: /media/forum//forum/∏∂¿Ãæœ∫Œ≈Á¡¶««¡§ 400mg.jpg
+Not Found: /media/forum//ΩŒ¿Ã∏ﬁ∆Æ¡§,300mg.jpg
+Not Found: /media/forum//º¡∆Æ∏∞¡§.jpg
+Not Found: /media/forum//»ƒ∏ØΩ∫¡§(«™∑ŒººπÃµÂ).jpg
+Unauthorized: /common/api/login/
+Unauthorized: /common/api/login/
+Unauthorized: /common/api/login/
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Watching for file changes with StatReloader
+Not Found: /index.html
+Not Found: /style.css
+Not Found: /app.js
+Not Found: /style.css
+Not Found: /index.html
+Not Found: /app.js
+Not Found: /index.html
+Not Found: /style.css
+Not Found: /app.js
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+C:\Users\youny\PycharmProjects\webproject\common\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\youny\PycharmProjects\webproject\common\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /common/login/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'api_verify_token' not found. 'api_verify_token' is not a valid view function or pattern name.
+C:\Users\youny\PycharmProjects\webproject\common\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

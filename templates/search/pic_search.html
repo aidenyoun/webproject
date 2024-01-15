@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/search" style="padding-left: 20px;">
+        <button class="btn btn-link" style="font-family: 'NanumSquareRoundB', sans-serif;">
+            <img src="{% static 'img/back.png' %}" alt="Toggle navigation" class="back-icon">
+        </button>
+    </a>
+</nav>
+
+<div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h1 class="card-title">약품 사진 검색</h1>
+
+                    <!-- 사진 업로드 폼 추가 -->
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name="drug_image">
+                        <input type="submit" value="검색하기">
+                    </form>
+
+                    <!-- 검색 결과 표시 -->
+                    {% if medicine_info %}
+                    <hr>
+                    <h2 class="card-text">{{ medicine_info.name }}</h2>
+                    <p class="card-text">간단 설명 : {{ medicine_info.description }}</p>
+                    <img src="{% static 'search/img/'|add:medicine_info.name|add:'.jpg' %}" alt="{{ medicine_info.name }}" style="width: 100%;">                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="messageModalLabel">Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="messageModalBody">
+        <!-- Message will be inserted here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.onload = function() {
+  var message = "{{ message }}";  // Django template language를 사용하여 서버에서 메시지를 가져옵니다.
+  if (message) {  // 메시지가 있는 경우에만 모달을 활성화합니다.
+    document.getElementById('messageModalBody').innerText = message;  // 모달에 메시지를 삽입합니다.
+    var messageModal = new bootstrap.Modal(document.getElementById('messageModal'), {});  // 모달 객체를 생성합니다.
+    messageModal.show();  // 모달을 활성화합니다.
+  }
+}
+</script>
+
+{% endblock %}
