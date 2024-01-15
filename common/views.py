@@ -5,6 +5,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from django.http import JsonResponse
+
 
 def logout_view(request):
     logout(request)
@@ -39,3 +41,22 @@ class LoginView(APIView):
         token, created = Token.objects.get_or_create(user=user)
         # 토큰 키를 응답으로 반환합니다.
         return Response({"token": token.key}, status=status.HTTP_200_OK)
+
+
+class VerifyTokenView(APIView):
+    def post(self, request):
+        token = request.data.get("token")
+        username = request.data.get("username")
+
+        if not token or not username:
+            return JsonResponse({"is_valid": False, "message": "Token and username are required."})
+
+        try:
+            user_token = Token.objects.get(key=token)
+
+            if user_token.user.username == username:
+                return JsonResponse({"is_valid": True})
+            else:
+                return JsonResponse({"is_valid": False, "message": "Token does not match the username."})
+        except Token.DoesNotExist:
+            return JsonResponse({"is_valid": False, "message": "Token does not exist."})

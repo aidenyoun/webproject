@@ -31,20 +31,17 @@
                 plugins: ['interaction', 'dayGrid'],
                 defaultView: 'dayGridMonth',
                 dateClick: function(info) {
-                    var date = info.dateStr;  // 클릭된 날짜를 가져옵니다.
+                    var date = info.dateStr;
                     $.ajax({
-                        url: '/get_medications/',  // 복용 정보를 가져올 서버의 URL입니다.
-                        type: 'POST',  // 요청 타입입니다.
+                        url: '/get_medications/',
+                        type: 'POST',
                         data: {
                             'date': date
                         },
                         dataType: 'json',
                         success: function(data) {
-                            // 서버로부터 받아온 데이터를 모달에 표시합니다.
                             var modal = document.getElementById("modal");
                             var span = document.getElementsByClassName("close")[0];
-
-                            // 받아온 약의 목록을 모달에 표시합니다.
                             $('#modal-text').html('');
                             for (var i = 0; i < data.medicines.length; i++) {
                               $('#modal-text').append('<p>' + data.medicines[i] + '</p>');
@@ -60,7 +57,6 @@
                                 }
                             }
                         },
-                        // AJAX 요청이 실패했을 때의 처리입니다.
                         error: function(error) {
                             console.log(error);
                         }
