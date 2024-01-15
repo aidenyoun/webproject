@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load custom_filters %}
 {% load static %}
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <div class="container mt-5">
+<div class="container mt-5">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0 text-center flex-grow-1 font-weight-bold" id="liveToday" style="font-family: 'NanumSquareRoundB', sans-serif;"></h5>
@@ -10,23 +11,25 @@
                 <img src="{% static 'img/calendar.png' %}" alt="Go to Calendar">
             </a>
         </div>
-        <div class="card-body" style="font-family: 'NanumSquareRoundB', sans-serif; text-align: center;">
-            {% for medication in medicines %}
-                <form method="POST" action="{% url 'save_medication' %}">
-                    {% csrf_token %}
-                    <!-- 약 이름 출력 -->
-                    <h4>{{ medication.name }}</h4>
-                    <!-- 아침, 점심, 저녁 체크박스 -->
-                    <input type="checkbox" name="morning" {% if medication.morning_dose %}checked{% endif %}> 아침
-                    <input type="checkbox" name="lunch" {% if medication.lunch_dose %}checked{% endif %}> 점심
-                    <input type="checkbox" name="dinner" {% if medication.dinner_dose %}checked{% endif %}> 저녁
-                    <!-- 약 이름을 hidden 필드로 전송 -->
-                    <input type="hidden" name="medication_name" value="{{ medication.name }}">
-                    <!-- 제출 버튼 -->
-                    <button type="submit" class="btn btn-primary">저장</button>
-                </form>
-            {% endfor %}
+<div class="card-body" style="font-family: 'NanumSquareRoundB', sans-serif; text-align: center;">
+{% for medication in medications %}
+    <div class="medication">
+        <h3>{{ medication.name }}</h3>
+        <div class="dose_time">
+            <button class="dose_taken" data-medication-id="{{ medication.id }}" data-dose-time="morning">
+                {% if 'morning' in medicine_doses|get_item:medication.id %} 복용 완료{% else %} 아침 복용{% endif %}
+            </button>
+            <button class="dose_taken" data-medication-id="{{ medication.id }}" data-dose-time="afternoon">
+                {% if 'afternoon' in medicine_doses|get_item:medication.id %} 복용 완료{% else %} 점심 복용{% endif %}
+            </button>
+            <button class="dose_taken" data-medication-id="{{ medication.id }}" data-dose-time="evening">
+                {% if 'evening' in medicine_doses|get_item:medication.id %} 복용 완료{% else %} 저녁 복용{% endif %}
+            </button>
         </div>
+    </div>
+{% endfor %}
+</div>
+
     </div>
 </div>
 <style>
@@ -74,11 +77,33 @@ Swal.fire({
 <script>
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
     var currentDate = mm + '/' + dd;
-
     document.getElementById('liveToday').innerHTML = currentDate;
+</script>
+
+<script>
+$(document).ready(function() {
+    $('.dose_taken').click(function() {
+        var medicationId = $(this).data('medication-id');
+        var doseTime = $(this).data('dose-time');
+        $.ajax({
+            url: '/save_medication/' + medicationId + '/',
+            type: 'POST',
+            data: {
+                'dose_time': doseTime,
+                'dose_taken': true,
+            },
+            success: function() {
+                alert('복용 정보가 업데이트되었습니다.');
+                location.reload();
+            },
+            error: function() {
+                alert('복용 정보 업데이트에 실패했습니다.');
+            },
+        });
+    });
+});
 </script>
 
 {% endblock %}

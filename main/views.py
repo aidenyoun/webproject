@@ -1,50 +1,108 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from manage.models import Medicine
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+from .models import Medicine, MedicineDose
 from django.utils import timezone
+from django.shortcuts import get_object_or_404
 
 def main(request):
     if request.user.is_authenticated:
         medicines = Medicine.objects.filter(user=request.user)
+        medicine_doses = {medicine: [dose.dose_time for dose in MedicineDose.objects.filter(medicine=medicine)] for medicine in medicines}
     else:
-        medicines = None  # 비회원인 경우 medicines는 None으로 설정
-
+        medicines = None
+        medicine_doses = None
     alert = request.session.pop('alert', None)
-    return render(request, 'main/main.html', {'alert': alert, 'medicines': medicines})
+    return render(request, 'main/main.html', {'alert': alert, 'medicines': medicines, 'medicine_doses': medicine_doses})
 
-def save_medication(request):
+def save_medication(request, medication_id):
     if request.method == 'POST':
-        medication_name = request.POST['medication_name']
-        morning = 'morning' in request.POST
-        lunch = 'lunch' in request.POST
-        dinner = 'dinner' in request.POST
+        medicine_name = request.POST.get('name', '')
+        morning = 'morning_dose_taken' in request.POST
+        afternoon = 'afternoon_dose_taken' in request.POST
+        evening = 'evening_dose_taken' in request.POST
+        today_date = timezone.now().date()
 
-        # 약품 이름으로 기존 객체를 가져옵니다.
-        # 해당하는 객체가 없다면 새로운 객체를 생성합니다.
         medicine, created = Medicine.objects.get_or_create(
-            user=request.user,
-            name=medication_name,
-            defaults={
-                'morning_dose': morning,
-                'lunch_dose': lunch,
-                'dinner_dose': dinner
-            }
+            id=medication_id,
+            defaults={'name': medicine_name},
         )
 
-        # 객체가 새로 생성된 것이 아니라면, 복용 시간을 업데이트합니다.
-        if not created:
-            medicine.morning_dose = morning
-            medicine.lunch_dose = lunch
-            medicine.dinner_dose = dinner
+        if morning:
+            MedicineDose.objects.update_or_create(
+                medicine=medicine,
+                dose_time='morning',
+                defaults={
+                    'dose_taken': True,
+                    'dose_taken_time': timezone.now(),
+                },
+            )
+        else:
+            MedicineDose.objects.update_or_create(
+                medicine=medicine,
+                dose_time='morning',
+                defaults={
+                    'dose_taken': False,
+                    'dose_taken_time': None,
+                },
+            )
 
-            if morning:
-                medicine.morning_dose_time = timezone.now()
+        if afternoon:
+            MedicineDose.objects.update_or_create(
+                medicine=medicine,
+                dose_time='afternoon',
+                defaults={
+                    'dose_taken': True,
+                    'dose_taken_time': timezone.now(),
+                },
+            )
+        else:
+            MedicineDose.objects.update_or_create(
+                medicine=medicine,
+                dose_time='afternoon',
+                defaults={
+                    'dose_taken': False,
+                    'dose_taken_time': None,
+                },
+            )
 
-            if lunch:
-                medicine.lunch_dose_time = timezone.now()
-
-            if dinner:
-                medicine.dinner_dose_time = timezone.now()
-
-            medicine.save()
-
+        if evening:
+            MedicineDose.objects.update_or_create(
+                medicine=medicine,
+                dose_time='evening',
+                defaults={
+                    'dose_taken': True,
+                    'dose_taken_time': timezone.now(),
+                },
+            )
+        else:
+            MedicineDose.objects.update_or_create(
+                medicine=medicine,
+                dose_time='evening',
+                defaults={
+                    'dose_taken': False,
+                    'dose_taken_time': None,
+                },
+            )
         return redirect('/')
+
+@csrf_exempt
+def get_medications(request):
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        medicines = Medicine.objects.filter(user=request.user, date=date)
+        medicines_list = [medicine.name for medicine in medicines]
+        return JsonResponse({'medicines': medicines_list})
+    else:
+        return JsonResponse({'error': 'Invalid Method'})
+
+def medication_view(request):
+    medicines = Medicine.objects.all()
+    medicine_doses = {medicine: [dose.dose_time for dose in MedicineDose.objects.filter(medicine=medicine)] for medicine in medicines}
+
+    context = {
+        'medicines': medicines,
+        'medicine_doses': medicine_doses,
+    }
+
+    return render(request, 'main/main.html', context)

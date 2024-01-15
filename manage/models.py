@@ -17,6 +17,7 @@ class Medicine(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     form = models.CharField(max_length=20)
+    date = models.DateField(null=True)  # 날짜 정보 기록
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     morning_time = models.TimeField(null=True, blank=True)
@@ -31,3 +32,19 @@ class Medicine(models.Model):
 
     def __str__(self):
         return self.name
+
+class MedicineDose(models.Model):
+    DOSE_TIME_CHOICES = [
+        ('morning', '아침'),
+        ('lunch', '점심'),
+        ('dinner', '저녁'),
+    ]
+
+    medicine = models.ForeignKey('Medicine', on_delete=models.CASCADE, related_name='doses')
+    dose_time = models.CharField(max_length=10, choices=DOSE_TIME_CHOICES)
+    dose_taken = models.BooleanField(default=False)
+    dose_taken_time = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        unique_together = ('medicine', 'dose_time')
+

@@ -7,14 +7,10 @@
     {% csrf_token %}
     <title>Calendar</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fullcalendar.io/releases/main/core/main.css" rel="stylesheet" />
-    <link href="https://fullcalendar.io/releases/main/daygrid/main.css" rel="stylesheet" />
-    <script src="https://fullcalendar.io/releases/main/core/main.js"></script>
-    <script src="https://fullcalendar.io/releases/main/interaction/main.js"></script>
-    <script src="https://fullcalendar.io/releases/main/daygrid/main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-
 <body>
     <div id="calendar"></div>
     <div id="modal" class="modal">
@@ -23,49 +19,52 @@
             <p id="modal-text">No data</p>
         </div>
     </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['interaction', 'dayGrid'],
+        defaultView: 'dayGridMonth',
+        dateClick: function(info) {
+            var date = info.dateStr;
+            $.ajax({
+                url: '/get_medications/',
+                type: 'POST',
+                data: {
+                    'date': date,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                dataType: 'json',
+                success: function(data) {
+                    var modal = document.getElementById("modal");
+                    var span = document.getElementsByClassName("close")[0];
+                    $('#modal-text').html('');
+                    for (var i = 0; i < data.medicines.length; i++) {
+                      $('#modal-text').append('<p>' + data.medicines[i].name + '</p>');
+                      for (var j = 0; j < data.medicines[i].doses.length; j++) {
+                          $('#modal-text').append('<p>' + data.medicines[i].doses[j].get_dose_time_display + ': ' + (data.medicines[i].doses[j].dose_taken ? 'Taken' : 'Not Taken') + '</p>');
+                      }
+                    }
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: ['interaction', 'dayGrid'],
-                defaultView: 'dayGridMonth',
-                dateClick: function(info) {
-                    var date = info.dateStr;
-                    $.ajax({
-                        url: '/get_medications/',
-                        type: 'POST',
-                        data: {
-                            'date': date
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            var modal = document.getElementById("modal");
-                            var span = document.getElementsByClassName("close")[0];
-                            $('#modal-text').html('');
-                            for (var i = 0; i < data.medicines.length; i++) {
-                              $('#modal-text').append('<p>' + data.medicines[i] + '</p>');
-                            }
-
-                            modal.style.display = "block";
-                            span.onclick = function() {
-                                modal.style.display = "none";
-                            }
-                            window.onclick = function(event) {
-                                if (event.target == modal) {
-                                    modal.style.display = "none";
-                                }
-                            }
-                        },
-                        error: function(error) {
-                            console.log(error);
+                    modal.style.display = "block";
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
                         }
-                    });
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
                 }
             });
-            calendar.render();
-        });
-    </script>
+        }
+    });
+    calendar.render();
+});
+</script>
 </body>
 </html>
 {% endblock %}
