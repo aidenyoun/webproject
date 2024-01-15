@@ -17,25 +17,32 @@ def save_medication(request):
         morning = 'morning' in request.POST
         lunch = 'lunch' in request.POST
         dinner = 'dinner' in request.POST
-        medicine, created = Medicine.objects.get_or_create(
-            user=request.user,
-            name=medication_name,
-            date=timezone.now().date(),
-            defaults={
-                'morning_dose': morning,
-                'lunch_dose': lunch,
-                'dinner_dose': dinner
-            }
-        )
-        if not created:
-            medicine.morning_dose = morning
-            medicine.lunch_dose = lunch
-            medicine.dinner_dose = dinner
-            if morning:
-                medicine.morning_dose_time = timezone.now()
-            if lunch:
-                medicine.lunch_dose_time = timezone.now()
-            if dinner:
-                medicine.dinner_dose_time = timezone.now()
-            medicine.save()
+        today_date = timezone.now().date()
+
+        try:
+            # 오늘 날짜의 해당 약물을 찾습니다.
+            medicine = Medicine.objects.get(
+                user=request.user,
+                name=medication_name,
+            )
+        except Medicine.DoesNotExist:
+            # 약물이 없으면 새로 생성합니다.
+            medicine = Medicine.objects.create(
+                user=request.user,
+                name=medication_name,
+                date=today_date,
+            )
+
+        # 복용 기록을 저장합니다.
+        if morning:
+            medicine.morning_dose = True
+            medicine.morning_dose_time = timezone.now()
+        if lunch:
+            medicine.lunch_dose = True
+            medicine.lunch_dose_time = timezone.now()
+        if dinner:
+            medicine.dinner_dose = True
+            medicine.dinner_dose_time = timezone.now()
+        medicine.save()
+
         return redirect('/')
