@@ -1,0 +1,31 @@
+# apps.py
+from django.apps import AppConfig
+from tensorflow.keras.models import load_model
+
+class YourAppConfig(AppConfig):
+    name = 'your_app_name'
+    model = load_model('path_to_your_model/Intel_image_classification_model.h5')
+
+# views.py
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .apps import YourAppConfig
+from PIL import Image
+import numpy as np
+
+@csrf_exempt
+def classify_image(request):
+    if request.method == 'POST':
+        image_file = request.FILES['image']
+        image = Image.open(image_file)
+        image = image.resize((150, 150))
+        image_array = np.array(image) / 255.0
+        image_array = np.expand_dims(image_array, axis=0)
+
+        model = YourAppConfig.model
+        prediction = model.predict(image_array)
+        predicted_class = np.argmax(prediction, axis=1)
+
+        return JsonResponse({'predicted_class': str(predicted_class[0])})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)

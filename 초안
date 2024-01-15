@@ -1,0 +1,115 @@
+모델 정의 (models.py):
+from django.db import models
+
+class PillImage(models.Model):
+    image = models.ImageField(upload_to='pill_images')
+
+    def __str__(self):
+        return f"Pill Image {self.id}"
+
+
+이미지 처리 뷰 (views.py):
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import PillImage
+from PIL import Image
+import torch
+from torchvision import transforms
+from .pill_model import SimpleCNN  # 모델 클래스를 정의한 파일을 import
+import json
+
+# PyTorch 모델 불러오기
+import torch
+from torchvision import models, transforms
+
+# 모델 초기화 및 가중치 로드
+def load_pytorch_model(model_path):
+    model = models.resnet152(pretrained=False, num_classes=100)  # num_classes는 실제 클래스 수에 맞춰 조정
+    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
+    model.eval()  # 모델을 평가 모드로 설정
+    return model
+
+# 이미지 변환을 위한 트랜스폼
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+
+# 예시 사용법
+model = load_pytorch_model('path/to/your/model.pt')
+
+
+@csrf_exempt
+def upload_and_predict(request):
+    if request.method == 'POST':
+        # 이미지 파일을 PillImage 객체로 저장
+        image = request.FILES['image']
+        pill_image = PillImage(image=image)
+        pill_image.save()
+
+        # 이미지를 로드하고 모델에 맞게 변환
+        img = Image.open(pill_image.image).convert('RGB')
+        transform = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+        ])
+        img = transform(img)
+        img = img.unsqueeze(0)  # 이미지에 배치 차원 추가
+
+        # 모델 예측
+        with torch.no_grad():
+            preds = model(img)
+            _, predicted = torch.max(preds, 1)
+            pill_name = get_pill_name_from_class_index(predicted.item())  # 클래스 인덱스를 약품 이름으로 변환하는 함수
+
+        # JSON 응답 반환
+        response_data = {'pill_name': pill_name}
+        return JsonResponse(response_data)
+
+    return JsonResponse({'error': 'Invalid HTTP method'}, status=405)
+
+URL 매핑 (urls.py):
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('predict/', views.upload_and_predict, name='upload_and_predict'),
+]
+
+클래스 인덱스를 약품 이름으로 변환 (utils.py 또는 views.py 내부에 함수 추가):
+def get_pill_name_from_class_index(index):
+    # 인덱스를 약품 이름으로 변환하는 로직
+    # 예: {0: 'Tylenol', 1: 'Advil', ...}
+    class_index_to_name_mapping = load_your_mapping()  # 실제 매핑을 로드하는 함수
+    return class_index_to_name_mapping.get(index, "Unknown")
+
+프론트엔드 HTML (upload.html):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Pill Image</title>
+</head>
+<body>
+    <form action="{% url 'upload_and_predict' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" required>
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
+
+settings.py에 media root 추가:
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+프로젝트의 urls.py에 media url 설정 추가:
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
