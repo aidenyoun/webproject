@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif;" >뒤로가기</button>
-        </a>
-    </nav>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#" style="padding-left: 20px;">
+        <button class="btn btn-link" onclick="window.history.back();" style="font-family: 'NanumSquareRoundB', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <img src="/static/img/back.png" alt="Toggle navigation" class="back-icon">
+        </button>
+    </a>
+</nav>
 
     <div class="container" style="font-family: 'NanumSquareRoundB', sans-serif;">
         <div class="row">
