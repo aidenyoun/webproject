@@ -3,10 +3,13 @@ from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseRedire
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
-from datetime import datetime
+from datetime import datetime as dt
+import datetime
+from django.utils import timezone
 from .models import Medicine
 from .forms import MedicineForm
 from django.views.decorators.csrf import csrf_exempt
+from django.views import View
 import datetime
 
 
@@ -19,8 +22,8 @@ def manage(request):
 
 def calendar(request):
     context = {
-        'current_year': datetime.now().year,
-        'current_month': datetime.now().month,
+        'current_year': dt.now().year,
+        'current_month': dt.now().month,
     }
     return render(request, 'manage/calendar.html', context)
 
@@ -40,8 +43,8 @@ def manage_medicine(request):
             messages.error(request, '종료 날짜를 입력해주세요.')
             return render(request, 'manage/manage_medicine.html')
 
-        start_date = datetime.strptime(request.POST['start_date'], "%Y-%m-%d").date()
-        end_date = datetime.strptime(request.POST['end_date'], "%Y-%m-%d").date()
+        start_date = dt.strptime(request.POST['start_date'], "%Y-%m-%d").date()
+        end_date = dt.strptime(request.POST['end_date'], "%Y-%m-%d").date()
 
         if start_date > end_date:
             messages.error(request, '끝일자는 시작일자보다 빨라야 합니다.')

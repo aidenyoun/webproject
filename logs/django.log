@@ -2144,3 +2144,49 @@ C:\Users\youny\PycharmProjects\webproject\common\urls.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\project\webproject\manage\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /calendar
+Internal Server Error: /manage/calendar/
+Traceback (most recent call last):
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\youny\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\webproject\manage\views.py", line 24, in calendar
+    'current_year': datetime.now().year,
+                    ^^^^^^^^^^^^
+AttributeError: module 'datetime' has no attribute 'now'
+C:\project\webproject\manage\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+Not Found: /get_medication/
+C:\project\webproject\manage\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\project\webproject\manage\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /get_medication/
+C:\project\webproject\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /get_medication/
+C:\project\webproject\manage\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\project\webproject\manage\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /get_medications/
+Not Found: /manage/manage/get_medications/
+Not Found: /get_medications/

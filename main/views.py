@@ -17,34 +17,25 @@ def save_medication(request):
         morning = 'morning' in request.POST
         lunch = 'lunch' in request.POST
         dinner = 'dinner' in request.POST
-
-        # 약품 이름으로 기존 객체를 가져옵니다.
-        # 해당하는 객체가 없다면 새로운 객체를 생성합니다.
         medicine, created = Medicine.objects.get_or_create(
             user=request.user,
             name=medication_name,
+            date=timezone.now().date(),
             defaults={
                 'morning_dose': morning,
                 'lunch_dose': lunch,
                 'dinner_dose': dinner
             }
         )
-
-        # 객체가 새로 생성된 것이 아니라면, 복용 시간을 업데이트합니다.
         if not created:
             medicine.morning_dose = morning
             medicine.lunch_dose = lunch
             medicine.dinner_dose = dinner
-
             if morning:
                 medicine.morning_dose_time = timezone.now()
-
             if lunch:
                 medicine.lunch_dose_time = timezone.now()
-
             if dinner:
                 medicine.dinner_dose_time = timezone.now()
-
             medicine.save()
-
         return redirect('/')

@@ -22,6 +22,7 @@ class Medicine(models.Model):
     morning_time = models.TimeField(null=True, blank=True)
     lunch_time = models.TimeField(null=True, blank=True)
     dinner_time = models.TimeField(null=True, blank=True)  # 알림 시간
+    date = models.DateField(null=True, blank=True) # 복용한 날짜, 캘린더와 연동
     morning_dose = models.BooleanField(default=False)  # 아침 복용 여부
     lunch_dose = models.BooleanField(default=False)  # 점심 복용 여부
     dinner_dose = models.BooleanField(default=False)  # 저녁 복용 여부
