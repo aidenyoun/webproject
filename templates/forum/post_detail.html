@@ -125,13 +125,13 @@
                         </div>
 
                     <!-- 로그인한 사용자만 댓글 작성 가능 -->
-                    {% if user.is_authenticated %}
-                    <form action="{% url 'forum:comment_new' post.pk %}" method="POST">
-                        {% csrf_token %}
-                        <textarea name="text" required></textarea>
-                        <button type="submit">댓글 작성</button>
-                    </form>
-                    {% endif %}
+                {% if user.is_authenticated %}
+                <form action="{% url 'forum:comment_new' post.pk %}" method="POST">
+                    {% csrf_token %}
+                    <textarea name="text" class="form-control" required></textarea>
+                    <button type="submit" class="btn btn-primary mt-2">댓글 작성</button>
+                </form>
+                {% endif %}
                 </div>
             </div>
         </div>

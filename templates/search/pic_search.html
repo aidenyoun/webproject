@@ -21,8 +21,11 @@
                     <!-- 사진 업로드 폼 추가 -->
                     <form method="POST" action="" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <input type="file" name="drug_image">
-                        <input type="submit" value="검색하기">
+                        <div class="mb-3">
+                            <label for="drugImage" class="form-label">약 이미지 업로드</label>
+                            <input type="file" class="form-control" id="drugImage" name="drug_image">
+                        </div>
+                        <button type="submit" class="btn btn-primary">검색하기</button>
                     </form>
 
                     <!-- 검색 결과 표시 -->

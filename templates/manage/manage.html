@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 success: function(response) {
                     // 서버로부터 받은 약의 목록을 처리합니다.
-                    alert('Medicines: ' + response.medicines.join(', '));
+                    // 모달에 데이터를 세팅하고, 모달을 표시합니다.
+                    document.querySelector('#manageMedicineModal .modal-body').innerHTML = response.medicines.join(', ');
+                    $('#manageMedicineModal').modal('show');
                 }
             });
         }
@@ -112,13 +114,19 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="manageMedicineModalLabel"></h5>
+        <h5 class="modal-title" id="manageMedicineModalLabel">약품 관리</h5>
+        <!-- 닫기 버튼 추가 -->
+        <button type="button" class="close" aria-label="Close" onclick="$('#manageMedicineModal').modal('hide');">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
+        <!-- 모달 내용 -->
       </div>
     </div>
   </div>
 </div>
+
 <script>
 
 // 약품을 삭제하는 함수

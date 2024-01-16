@@ -18,10 +18,12 @@
                     <h1 class="card-title">약품명 검색</h1>
 
                     <!-- 검색 폼 추가 -->
-                    <form method="GET" action="">
-                        <input type="text" name="q" placeholder="약품명을 입력하세요">
-                        <input type="submit" value="검색하기">
-                    </form>
+                <form method="GET" action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="q" placeholder="약품명을 입력하세요">
+                    </div>
+                    <button type="submit" class="btn btn-primary">검색하기</button>
+                </form>
 
                     <!-- 검색 결과 표시 -->
                     {% for result in results %}
