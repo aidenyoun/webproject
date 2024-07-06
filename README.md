@@ -1,6 +1,13 @@
-FORUM -> 게시판 <br>
-MANAGE -> 약품 관리 <br>
-SEARCH -> 약품 검색 <br>
+# 연세대학교 미래캠퍼스 의료정보소프트웨어실험 프로젝트 개발
+## 의료정보 소프트웨어 실험 프로젝트로, 약품 사진을 통한 검색 기능, 복용 관리, 사용자 게시판 기능을 제공합니다.
 
-
-<h3> Clone to local and run commands from the root directory [python manage.py runserver] </h3> 
+### 폴더 구조
+DLModels: 딥러닝 모델 관련 파일
+board: 게시판 기능 관련 파일
+common: 공통으로 사용되는 유틸리티
+forum: 포럼 기능 관련 파일
+manage: 약품 관리 기능 관련 파일
+search: 약품 검색 기능 관련 파일
+static: 정적 파일(css, js, 이미지 등)
+templates: HTML 템플릿 파일
+webproject: Django 프로젝트 설정 파일
